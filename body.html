@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karen Kiddo | Body Pronounciation</title>
+    <link rel="icon" type="image/png" href="desktop_images/logo.png"/>
+    <style>
+        @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Set up basic styles */
+        body {
+            width: 100%;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            background-color: antiquewhite;
+
+        }
+
+        .container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        .btn{
+            padding: 15px 30px;
+            font-size: 20px;
+            font-weight: bold;
+            border: 8px solid #fff;
+            border-radius: 20px;
+            background-color: #FF9800;
+            color: #FFF;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+        
+
+        .nav {
+            width: 100%;
+            height: 5%;
+            padding: 20px;
+
+        }
+        .button-box {
+            top: -5vh;
+            left: 31vh;;
+            width: 35vh;
+            height: 9vh;
+            margin: 35px auto;
+            position: absolute;
+            border-radius: 10px;
+            background: #fff;
+            font-size: 20px;
+            font-weight: bold;
+            border: 8px solid #fff;
+            border-radius: 20px;
+            background-color: #fff;
+            color: #FFF;
+            text-transform: uppercase;
+            cursor: pointer;
+}
+
+        .toggle-btn {
+            padding: 10px 25px;
+            cursor: pointer;
+            background: transparent;
+            border: 0;
+            outline: none;
+            position: relative;
+            text-align: center;
+        }
+
+        #btn {
+            left: 0;
+            top: 0;
+            position: absolute;
+            width: 17vh;
+            height: 100%;
+            background: #FF9800;
+            border-radius: 10px;
+            transition: .5s;
+        }
+        .pow {
+            color: #fff;
+        }
+
+
+        .content {
+            width: 100%;
+            display: flex;
+            height: 95%;
+        }
+        .overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 2;
+    }
+    .food-guide {
+      position: absolute;
+      left: 0;
+      width: 100vh;
+      height: 100vh;
+    }
+    .point {
+      position: absolute;
+      width: 50vh;
+      height: 50vh;
+      top: 30vh;
+      left: 150vh;
+    }
+    .ok {
+      position: absolute;
+      top: 80vh;
+      left: 60vh;
+    }
+    .animated-image1 {
+      width: 40vh; /* Initial width */
+      height: auto; /* Auto height to maintain aspect ratio */
+      animation: imageAnimation 2s ease-in-out alternate infinite; /* Change duration and animation timing as needed */
+      opacity: 1;
+}
+
+@keyframes imageAnimation {
+  0% {
+    transform: scale(1); /* Initial scale */
+  }
+  100% {
+    transform: scale(1.5); /* Scaled up */
+  }
+}
+
+        .left,
+        .right {
+            width: 50%;
+            height: 100%;
+            /* Other styles */
+        }
+        .right {
+            position: relative;
+            height: 100vh;
+            background-image: url('body/body.png');
+            background-size: 80vh;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 0;
+        }
+        .image-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+        .image-container img {
+            width: 20vh;
+            height: 20vh;
+        }
+        h1 {
+            font-size: 1.5rem;
+            padding-top: 10px;
+            padding-left: 3vh;
+        }
+        .sound-btn {
+            display: inline-block;
+            font-size: 20px;
+            font-weight: bold;
+            border: 2px solid #fff;
+            border-radius: 10px;
+            background-color: #FF9800;
+            width: 5vh;
+            height: 5vh;
+            padding: 5px;
+            color: #fff;
+        }
+        .pic {
+                cursor: pointer;
+            }
+        #head {
+            position: absolute;
+            top: 60px;
+            left: 250px;
+            width: 250px;
+            height: 250px;
+        }
+        #mouth {
+            position: absolute;
+            top: 270px;
+            left: 355px;
+            width: 50px;
+            height: 35px;
+        }
+        #nose {
+            position: absolute;
+            top: 240px;
+            left: 355px;
+            width: 50px;
+            height: 35px;
+            
+        }
+        #eye1, #eye2 {
+            position: absolute;
+            top: 210px;
+            left: 315px;
+            width: 50px;
+            height: 50px;
+           
+        }
+        #ear1, #ear2 {
+            position: absolute;
+            top: 220px;
+            left: 270px;
+            width: 40px;
+            height: 60px;
+            transform: rotate(-15deg);
+           
+           
+        }
+        #ear2 {
+            left: 450px;
+            transform: rotate(15deg);
+        }
+        #eye2 {
+            left: 400px;
+        }
+        #hand1, #hand2 {
+            position: absolute;
+            
+            width: 30vh;
+            height: 20vh;
+            left: 15vh;
+            top: 38vh;
+        }
+        #hand2 {
+            left: 65vh;
+        }
+        #leg1, #leg2 {
+            position: absolute;
+            width: 25vh;
+            height: 15vh;
+            left: 35vh;
+            top: 72vh;
+            transform: rotate(120deg);
+
+        }
+        #leg2 {
+            left: 50vh;
+            transform: rotate(60deg);
+
+        }
+        .btn:hover {
+            background-color: green;
+        }
+        
+        #leg1:hover, #leg2:hover, #hand1:hover, #hand2:hover, #ear1:hover, #ear2:hover, #nose:hover, #eye1:hover, #eye2:hover, #mouth:hover, #head:hover {
+            border: 1px solid blue;
+            border-radius: 50%;
+            background-color: blue;
+            opacity: 0.5;
+            
+        }
+        .highlight-part {
+            border: 1px solid blue;
+            border-radius: 50%;
+            background-color: blue;
+            opacity: 0.5;
+        }
+        .animated-image {
+        width: 500vh; /* Initial width */
+        height: auto; /* Auto height to maintain aspect ratio */
+        animation: imageAnimation 2s ease-in-out alternate infinite; /* Change duration and animation timing as needed */
+        opacity: 1;
+        height: 500vh;
+}
+
+        @keyframes imageAnimation {
+        0% {
+            transform: scale(1); /* Initial scale */
+        }
+        100% {
+            transform: scale(1.5); /* Scaled up */
+        }
+    }
+        /* Media query for mobile view */
+        @media screen and (max-width: 768px) {
+            body {
+                width: 200vh;
+                height: 400vh;
+                background-color: antiquewhite;
+            }
+            .nav {
+                height: 10%;
+            }
+            .content {
+                flex-direction: column-reverse;
+                width: 200vh;
+            }
+            
+            .image-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            h1 {
+                font-size: 5rem;
+                margin-left: 20vh;
+            }
+
+            .left {
+                width: 200vh;
+                
+            }
+            .right {
+                background-position: center;
+                width: 200vh;
+                height: 270vh;
+                background-size: 150vh;
+            }
+            .btn {
+                display: inline-block;
+                text-align: center;
+                width: 45vh;
+                height: 30vh;
+                font-weight: bold;
+                border: 25px solid #fff;
+                border-radius: 60px;
+                font-size: 4.5rem;                
+            }
+            .btn i {
+                padding-top: 25px;
+            }
+            .image-container img {
+                padding: 10px;
+                width: 70vh;
+                height: 60vh;
+            }
+            
+            #head {
+                left: 32%;
+                top: -4vh;
+                width: 70vh;
+                height: 70vh;
+                }
+                #eye1, #eye2 {
+                    width: 20vh;
+                    height: 20vh;
+                    top: 25%;
+                }
+                #eye1 {
+                    left: 40%;
+                }
+                #eye2 {
+                    left: 50%;
+                }
+                #mouth, #nose {
+                    widows: 10vh;
+                    height: 10vh;
+                }
+                #mouth {
+                    top: 36%;
+                    left: 45%;
+                    width: 20vh;
+                    height: 10vh;
+                }
+                #ear1, #ear2 {
+                    
+                    width: 10vh;
+                    height: 20vh;
+                }
+                #ear1 {
+                    top: 27%;
+                    left: 36%;
+                }
+                #ear2 {
+                    top: 27%;
+                    left: 59%;
+                }
+                #nose {
+                    top: 32%;
+                    left: 48%;
+                    width: 10vh;
+                }
+                #hand1, #hand2 {
+                    width: 60vh;
+                    height: 40vh;
+                    top: 55vh;
+                    left: 20vh;
+                }
+                #hand2 {
+                    left: 120vh;
+                }
+                #leg1, #leg2 {
+                    top: 105vh;
+                    left: 70vh;
+                    width: 30vh;
+                    height: 60vh;
+                    transform: rotate(30deg);
+                }
+                #leg2 {
+                    left: 100vh;
+                    transform: rotate(-30deg);
+                }
+                .button-box {
+                    left: 95vh;
+                    top: -2vh;
+                    width: 98vh;
+                    height: 30vh;
+                    border: 20px solid #fff;
+                    border-radius: 60px;
+                }
+                #btn {
+                    width: 35vh;
+                    border-radius: 60px;
+                    font-size: 250px;
+                }
+                button {
+                    display: inline;
+                    font-size: 5rem;
+                    padding: 60px;
+                    
+                }
+                .toggle-btn {
+                    padding: 10px 18px;
+                }
+                .food-guide {
+                    position: absolute;
+                    top: 100vh;
+                    left: -20vh;
+                    width: 220vh;
+                    height: 200vh;
+                }
+                .point {
+                width: 50vh;
+                left: 80vh;
+                top: 60vh;
+                }
+                .ok {
+                top: 325vh;
+                left: 145vh;
+                }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="overlay">
+        <img class="food-guide" src="desktop_images/body_guide.png">
+        <img class="point animated-image1" src="desktop_images/point.png">
+        <span class="btn ok"><i class="fa-solid fa-thumbs-up"></i></span>
+     </div>
+    <div class="container">
+        <div class="nav">
+            <a href="karenlay.html"><span class="btn exit"><i class="fa-solid fa-chevron-left"></i></span></a>
+            <div class="button-box">
+                <div id="btn"></div>
+                <button type="button" class="toggle-btn pow" onclick="leftClick()">ပိုးကရင်</button>
+                <button type="button" class="toggle-btn sakaw" onclick="rightClick()">စကောကရင်</button>
+            </div>
+        </div>
+        <div class="content">
+            <div class="left">
+                <div class="image-container">
+                    <div class="image wrap">
+                     <img class="pic head-pic" src="body/head.png"  onclick="showPart('head')">
+                     <h1>ခေါင်း</h1>
+                    </div>
+                    <div class="image wrap">
+                    <img class="pic eye-pic" src="body/eye.png"  onclick="showPart('eye')">
+                    <h1>မျက်လုံး</h1>
+                    </div>
+                    <div class="image wrap">
+                    <img class="pic ear-pic" src="body/ear.png"  onclick="showPart('ear')">
+                    <h1>နားရွက်</h1>
+                    </div>
+                    <div class="image wrap">
+                    <img class="pic nose-pic" src="body/nose.png"  onclick="showPart('nose')">
+                    <h1>နှာခေါင်း</h1>
+                    </div>
+                    <div class="image wrap">
+                    <img class="pic moth-pic" src="body/mouth.png"  onclick="showPart('mouth')">
+                    <h1>ပါးစပ်</h1>
+                    </div>
+                    <div class="image wrap">
+                    <img class="pic hand-pic" src="body/hand.png"  onclick="showPart('hand')">
+                    <h1>လက်</h1>
+                    </div>
+                    <div class="image wrap">
+                    <img class="pic leg-pic" src="body/leg.png"  onclick="showPart('leg')">
+                    <h1>ခြေထောက်</h1>
+                    </div>
+                    
+
+                </div>
+            </div>
+            <div class="right">
+                <div class="part" id="head"></div>
+                <div class="part" id="mouth"></div>
+                <div class="part" id="eye1"></div>
+                <div class="part" id="eye2"></div>
+                <div class="part" id="nose"></div>
+                <div class="part" id="ear1"></div>
+                <div class="part" id="ear2"></div>
+                <div class="part" id="hand1"></div>
+                <div class="part" id="hand2"></div>
+                <div class="part" id="leg1"></div>
+                <div class="part" id="leg2"></div>
+            </div>
+        </div>
+    </div>
+    <script src="js/button_click.js"></script>
+
+    <script>
+        let Karen = 'pow';
+        const Body = {
+            head: {sakaw: 'voice/sakaw/Body/Head.wav', pow: 'voice/pow/Body/Head.wav'},
+            eye1: {sakaw: 'voice/sakaw/Body/Eye.wav', pow: 'voice/pow/Body/Eye.wav'},
+            eye2: {sakaw: 'voice/sakaw/Body/Eye.wav', pow: 'voice/pow/Body/Eye.wav'},
+
+            ear1: {sakaw: 'voice/sakaw/Body/Ear.wav', pow: 'voice/pow/Body/Ear.wav'},
+            ear2: {sakaw: 'voice/sakaw/Body/Ear.wav', pow: 'voice/pow/Body/Ear.wav'},
+
+            nose: {sakaw: 'voice/sakaw/Body/Nose.wav', pow: 'voice/pow/Body/Nose.wav'},
+            mouth: {sakaw: 'voice/sakaw/Body/Mouth.wav', pow: 'voice/pow/Body/Mouth.wav'},
+            hand1: {sakaw: 'voice/sakaw/Body/Hand.wav', pow: 'voice/pow/Body/Hand.wav'},
+            hand2: {sakaw: 'voice/sakaw/Body/Hand.wav', pow: 'voice/pow/Body/Hand.wav'},
+
+            leg1: {sakaw: 'voice/sakaw/Body/Leg.wav', pow: 'voice/pow/Body/Leg.wav'},
+            leg2: {sakaw: 'voice/sakaw/Body/Leg.wav', pow: 'voice/pow/Body/Leg.wav'},
+
+        };
+        const partToPic = {
+            'head': 'head-pic',
+            'eye1': 'eye-pic',
+            'eye2': 'eye-pic',
+            'ear1': 'ear-pic',
+            'ear2': 'ear-pic',
+            'nose': 'nose-pic',
+            'mouth': 'moth-pic',
+            'hand1': 'hand-pic',
+            'hand2': 'hand-pic',
+            'leg1': 'leg-pic',
+            'leg2': 'leg-pic'
+};
+var btn = document.getElementById('btn');
+
+
+function moveButtonLeft(vhValue) {
+  btn.style.left = vhValue;
+}
+function leftClick() {
+    Karen = 'pow';
+    document.querySelector('.pow').style.color = 'white';
+    document.querySelector('.sakaw').style.color = 'black';
+    btn.style.left = '0'
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    btn.style.width = '35vh';
+    }
+}
+
+function rightClick() {
+    Karen = 'sakaw';
+    document.querySelector('.pow').style.color = 'black';
+    document.querySelector('.sakaw').style.color = 'white';
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        moveButtonLeft('38vh');
+        btn.style.width = '53vh';
+
+} else {
+     moveButtonLeft('15.5vh');
+}
+}
+        
+document.addEventListener("DOMContentLoaded", function() {
+    const parts = document.querySelectorAll('.part');
+    const pics = document.querySelectorAll('.pic');
+
+    parts.forEach(part => {
+        part.addEventListener('click', () => {
+            parts.forEach(part => {
+                part.classList.remove('highlight-part');
+            });
+            const partId = part.id;
+            if(Karen == 'sakaw'){
+            const BodyAudio = new Audio(Body[partId].sakaw);
+            BodyAudio.play();
+            console.log(Karen);
+            }
+            if(Karen == 'pow'){
+            const BodyAudio = new Audio(Body[partId].pow);
+            BodyAudio.play();
+            console.log(Karen);
+            }
+
+            // Hide all pics initially
+            pics.forEach(pic => {
+                pic.classList.remove('animated-image');
+            });
+
+            // Show the corresponding pic based on the hovered part
+            const correspondingPicClass = partToPic[partId];
+            const correspondingPic = document.querySelector(`.pic.${correspondingPicClass}`);
+
+            if (correspondingPic) {
+                correspondingPic.classList.add('animated-image');
+            }
+        });
+    });
+
+    
+});
+
+function showPart(part){
+    const parts = document.querySelectorAll('.part');
+    parts.forEach(item => {
+        item.classList.remove('highlight-part');
+    });
+
+    if(part == 'hand' || part == 'eye' || part == 'ear' || part == 'leg'){
+        if(Karen == 'sakaw'){
+        const BodyAudio = new Audio(Body[part+1].sakaw);
+        BodyAudio.play();
+        }
+        if(Karen == 'pow'){
+            const BodyAudio = new Audio(Body[part+1].pow);
+        BodyAudio.play();
+        }
+        document.getElementById(part+1).classList.add('highlight-part');
+        document.getElementById(part+2).classList.add('highlight-part');
+
+    }
+    else {
+        if(Karen == 'sakaw'){
+        const BodyAudio = new Audio(Body[part].sakaw);
+        BodyAudio.play();
+        }
+        if(Karen == 'pow'){
+            const BodyAudio = new Audio(Body[part].pow);
+        BodyAudio.play();
+        }
+        document.getElementById(part).classList.add('highlight-part');
+    }
+}
+
+function isNotDesktopView() {
+    console.log(window.innerWidth); 
+    return window.innerWidths < 1024;
+}
+const ok = document.querySelector('.ok');
+  const container1 = document.querySelector('.container');
+  const overlay1 = document.querySelector('.overlay');
+
+  ok.addEventListener('click', function(){
+    overlay1.style.display = 'none';
+    container1.style.opacity = 1;
+    container1.style.pointerEvents = 'auto';
+  })
+</script>
+</body>
+
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>App Tutorial</title>
+  <style>
+    /* Styles for the overlay guide */
+    .overlay-guide {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 255, 0, 0.5); /* Green background color with opacity */
+      text-align: center;
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .guide-content {
+      padding: 20px;
+    }
+
+    .guide-text {
+      margin-bottom: 20px;
+      font-size: 24px;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid transparent;
+      animation: typing 3s steps(40) forwards;
+    }
+
+    @keyframes typing {
+      from {
+        width: 0;
+      }
+      to {
+        width: 100%;
+      }
+    }
+
+    /* Main content styles */
+    .main-content {
+      opacity: 1;
+      transition: opacity 0.5s ease-in-out;
+      /* Add your main content styles here */
+    }
+
+    .show-tutorial .main-content {
+      opacity: 0.5; /* Reduce opacity of main content during tutorial */
+    }
+
+    .show-main-content .main-content {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <!-- Overlay guide container -->
+  <div class="overlay-guide" id="overlayGuide">
+    <div class="guide-content">
+      <div class="guide-text">
+        <p>Welcome to the pronunciation learning app!</p>
+        <p>Follow along to learn how to use this app.</p>
+        <!-- Add more guide text here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Main content of your app -->
+  <div class="main-content" id="mainContent">
+    <!-- Your app's elements go here -->
+    <p>This is your main content</p>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const overlayGuide = document.getElementById('overlayGuide');
+      const mainContent = document.getElementById('mainContent');
+
+      // Show the guide initially
+      overlayGuide.style.display = 'block';
+      mainContent.classList.add('show-tutorial');
+
+      // Hide the guide and show main content after 5 seconds
+      const tutorialTimeout = setTimeout(() => {
+        overlayGuide.style.display = 'none';
+        mainContent.classList.remove('show-tutorial');
+        mainContent.classList.add('show-main-content');
+      }, 5000); // Adjust the time (in milliseconds) to display the guide
+
+      // Event listener for clicking anywhere on the page to close the tutorial
+      document.addEventListener('click', function closeTutorial() {
+        clearTimeout(tutorialTimeout); // Clear the timeout
+        overlayGuide.style.display = 'none';
+        mainContent.classList.remove('show-tutorial');
+        mainContent.classList.add('show-main-content');
+        document.removeEventListener('click', closeTutorial); // Remove the event listener after closing the tutorial
+      });
+    });
+  </script>
+</body>
+</html>

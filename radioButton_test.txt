@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Animated Radio Buttons</title>
+  <style>
+    .radio-buttons {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .radio-container {
+      position: relative;
+      margin-bottom: 10px;
+    }
+
+    .radio-input {
+      position: absolute;
+      opacity: 0;
+    }
+
+    .radio-custom {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 25px;
+      width: 25px;
+      border-radius: 50%;
+      border: 2px solid #ccc;
+      transition: background-color 0.3s ease;
+    }
+
+    .radio-input:checked + .radio-custom {
+      border-color: #3366ff;
+      background-color: #3366ff;
+      animation: moveBackground 0.5s ease;
+    }
+
+    @keyframes moveBackground {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.2);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="radio-buttons">
+    <label class="radio-container">
+      <input type="radio" name="radio" class="radio-input" checked>
+      <span class="radio-custom"></span> Option 1
+    </label>
+    <label class="radio-container">
+      <input type="radio" name="radio" class="radio-input">
+      <span class="radio-custom"></span> Option 2
+    </label>
+  </div>
+
+  <script>
+    const radioInputs = document.querySelectorAll('.radio-input');
+    radioInputs.forEach(input => {
+      input.addEventListener('change', function() {
+        radioInputs.forEach(otherInput => {
+          const customSpan = otherInput.nextElementSibling;
+          customSpan.style.backgroundColor = '#fff'; // Reset background color for all spans
+        });
+
+        const customSpan = this.nextElementSibling;
+        customSpan.style.backgroundColor = '#3366ff'; // Set background color for the selected span
+      });
+    });
+  </script>
+</body>
+</html>

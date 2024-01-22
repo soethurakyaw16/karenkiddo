@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Full Background Photo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+  	body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+.background-photo {
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100vh;
+  display: flex;
+  justify-content: flex-start; /* Align content to the start (left) */
+  align-items: flex-start; /* Align content to the start (top) */
+  height: 100%;
+}
+ #tooth {
+             margin: auto; /* Center the content horizontally and vertically */
+  text-align: center;
+   width: 50%; /* Set a fixed width for the centered content in percentage */
+  max-width: 80%;
+  height: 10%; /* Center text */
+  padding: 20px;
+  margin-left: 25%;
+  margin-bottom: 60%;
+}
+.bubble {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle at 50% 50%, #ffffff, #d4eff5, #b5d1e1);
+            display: none;
+            opacity: 0;
+            transform: scale(0);
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        }
+/* Media query for mobile devices */
+@media only screen and (max-width:768px) {
+  .background-photo {
+    background-image: url('mobile_images/toothbrush.gif');
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat; /* Image for mobile screens */
+  }
+}
+  
+  </style>
+</head>
+<body>
+  <div class="background-photo">
+  	 <div id="tooth"></div>
+    <!-- Your content goes here -->
+  </div>
+  <script>
+        var tooth = document.getElementById('tooth');
+        
+        tooth.addEventListener('click', function(event) {
+            var x = event.clientX;
+            var y = event.clientY;
+
+            // Create one large central bubble
+            var centralBubbleSize = getRandomNumber(40, 60);
+            createBubble(x, y, centralBubbleSize);
+
+            // Generate multiple smaller bubbles randomly around the central bubble
+            var numBubbles = getRandomNumber(3, 4);
+            var smallBubbleSize = getRandomNumber(10, 30);
+            for (var i = 0; i < numBubbles; i++) {
+                var offsetX = getRandomNumber(-30, 30);
+                var offsetY = getRandomNumber(-30, 30);
+                createBubble(x + offsetX, y + offsetY, smallBubbleSize);
+            }
+        });
+
+        function createBubble(x, y, size) {
+            var bubble = document.createElement('div');
+            bubble.className = 'bubble';
+            bubble.style.top = y - size / 2 + 'px';
+            bubble.style.left = x - size / 2 + 'px';
+            bubble.style.width = size + 'px';
+            bubble.style.height = size + 'px';
+            bubble.style.animationDuration = getRandomNumber(5, 10) + 's';
+            document.body.appendChild(bubble);
+
+            setTimeout(function() {
+                bubble.style.display = 'block';
+                bubble.style.opacity = 1;
+                bubble.style.transform = 'scale(1)';
+            }, 50);
+
+            setTimeout(function() {
+                bubble.style.opacity = 0;
+                bubble.style.transform = 'scale(0)';
+                setTimeout(function() {
+                    document.body.removeChild(bubble);
+                }, 500);
+            }, 1000);
+        }
+
+        function getRandomNumber(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+    </script>
+    </script>
+</body>
+</html>

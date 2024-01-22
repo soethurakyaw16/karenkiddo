@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Karen Kiddo | Counting Numbers</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="desktop_images/logo.png"/>
+<style>
+           @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
+
+    /* Basic styling */
+    body {
+        background-image: url('desktop_images/no_background3.png');
+      background-size: cover;
+      background-position: center;
+    }
+    .container {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      opacity: 0.3;
+      pointer-events: none;
+  }
+  .nav {
+      width: 100%;
+      height: 5%;
+      padding: 20px;
+  }
+  
+    .content {
+      display: grid;
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+      position: relative;
+      width: 100%;
+      height: 95%;
+      
+    }
+    .btn{
+        padding: 15px 30px;
+        font-size: 20px;
+        font-weight: bold;
+        border: 8px solid #fff; /* Frame border color */
+        border-radius: 20px;
+        background-color: #FF9800; /* Green color like a jungle */
+        color: #FFF;
+        text-transform: uppercase;
+        cursor: pointer;
+ }
+.btn:hover {
+  background-color: green;
+}
+.overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 2;
+    }
+    .food-guide {
+      position: absolute;
+      left: 0;
+      width: 100vh;
+      height: 100vh;
+    }
+    .point {
+      position: absolute;
+      top: 30vh;
+      left: 140vh;
+    }
+    .ok {
+      position: absolute;
+      top: 80vh;
+      left: 60vh;
+    }
+    .animated-image {
+      width: 50vh; /* Initial width */
+      height: auto; /* Auto height to maintain aspect ratio */
+      animation: imageAnimation 2s ease-in-out alternate infinite; /* Change duration and animation timing as needed */
+      opacity: 1;
+}
+
+@keyframes imageAnimation {
+  0% {
+    transform: scale(1); /* Initial scale */
+  }
+  100% {
+    transform: scale(1.5); /* Scaled up */
+  }
+}
+ .button-box {
+            top: -5vh;
+            left: 31vh;;
+            width: 32vh;
+            height: 6.5vh;
+            margin: 35px auto;
+            position: absolute;
+            border-radius: 10px;
+            background: #fff;
+            font-size: 20px;
+            font-weight: bold;
+            border: 8px solid #fff;
+            border-radius: 20px;
+            background-color: #fff;
+            color: #FFF;
+            text-transform: uppercase;
+            cursor: pointer;
+}
+
+        .toggle-btn {
+            padding: 10px 25px;
+            cursor: pointer;
+            background: transparent;
+            border: 0;
+            outline: none;
+            position: relative;
+            text-align: center;
+        }
+
+        #btn {
+            left: 0;
+            top: 0;
+            position: absolute;
+            width: 15vh;
+            height: 100%;
+            background: #FF9800;
+            border-radius: 10px;
+            transition: .5s;
+        }
+        .pow {
+          color: #fff;
+        }
+
+    .flip-container {
+      border: 8px solid #FFD700; /* Frame border color */
+      border-radius: 20px;
+      perspective: 1000px;
+      width: 100%;
+      
+    }
+
+    .flipper {
+      width: 100%;
+      height: 150px;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.6s;
+    }
+
+    .flip-container.flipped .flipper {
+      transform: rotateY(180deg);
+    }
+
+    .front,
+    .back {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      backface-visibility: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+    }
+
+    .front {
+      background-color: #CDDC39;
+    }
+
+    .back {
+      background-color: #fff;
+      transform: rotateY(180deg);
+      font-size: 18px;
+    }
+    .one {
+        background-image: url('no/one.png');
+        background-size: 70%;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    .two {
+        background-image: url('no/two.png');
+        background-size: 80%;
+        background-position: center;
+        background-repeat: no-repeat;
+        
+    }
+    .three {
+        background-image: url('no/three.png');
+        background-size: 80%;
+        background-position: center;
+        background-repeat: no-repeat;
+        
+    }
+    .four {
+        background-image: url('no/four.png');
+        background-size: 80%;
+        background-position: center;
+        background-repeat: no-repeat;
+        
+    }
+    .five {
+        background-image: url('no/five.png');
+        background-size: 80%;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    .six {
+        background-image: url('no/six.png');
+        background-size: 80%;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    .seven {
+        background-image: url('no/seven.png');
+        background-size: 80%;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    .ten {
+        background-image: url('no/ten.png');
+        background-size: 80%;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    .nine {
+        background-image: url('no/nine.png');
+        background-size: 70%;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    .eight {
+        background-image: url('no/eight.png');
+        background-size: 80%;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    
+    /* For desktop - 4 divs in a row */
+    @media screen and (min-width: 769px) {
+      .content {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    /* For mobile - 2 divs in a row */
+    @media screen and (max-width: 768px) {
+      .content {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      body {
+        background-image: url('mobile_images/no_background.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 150vh;
+      }
+      .content {
+        position: absolute;
+        top: 12vh;
+        left: 2vh;
+      }
+      .flipper {
+        height: 100%;
+      }
+      .exit {
+        position: absolute;
+        top: -0.3vh;
+        left: 0;
+      }
+      .music {
+        position: absolute;
+        top: -0.3vh;
+        left: 13.5vh;
+      }
+      .button-box {
+        top: -5.5vh;
+        left: 28.5vh;
+        width: 25vh;
+        height: 8vh;
+      }
+  #btn {
+    width: 9vh;
+  }
+ .toggle-btn {
+   padding: 15px 2px;
+ }
+ .pow {
+   margin-left: 5px;
+ }
+      button {
+        font-size: 18px;
+      }
+      .food-guide {
+   position: absolute;
+   top: 0vh;
+   left: -5vh;
+   width: 70vh;
+   height: 60vh;
+ }
+ .point {
+    width: 25vh;
+   left: 25vh;
+   top: 70vh;
+ }
+ .ok {
+   top: 110vh;
+   left: 45vh;
+ }
+      }
+    
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <img class="food-guide" src="desktop_images/no_guide.png">
+    <img class="point animated-image" src="desktop_images/point.png">
+    <span class="btn ok"><i class="fa-solid fa-thumbs-up"></i></span>
+ </div>
+<div class="container">
+    <div class="nav">
+        <a href="karenlay.html"><span class="btn exit"><i class="fa-solid fa-chevron-left"></i></span></a>
+        <div class="button-box">
+          <div id="btn"></div>
+          <button type="button" class="toggle-btn pow" onclick="leftClick()">ပိုးကရင်</button>
+          <button type="button" class="toggle-btn sakaw" onclick="rightClick()">စကောကရင်</button>
+      </div>
+    </div>
+    <div class="content">
+  <!-- Flip Containers -->
+  <div class="flip-container" onclick="NoSound(this, 'one')">
+    <div class="flipper">
+      <div class="front">
+        <h1>၁</h1>
+      </div>
+      <div class="back one">
+        
+      </div>
+    </div>
+  </div>
+  <div class="flip-container" onclick="NoSound(this, 'two')">
+    <div class="flipper">
+      <div class="front">
+        <h1>၂</h1>
+      </div>
+      <div class="back two">
+        
+      </div>
+    </div>
+  </div>
+  <div class="flip-container" onclick="NoSound(this, 'three')">
+    <div class="flipper">
+      <div class="front">
+       <h1>၃</h1>
+      </div>
+      <div class="back three">
+        
+      </div>
+    </div>
+  </div>
+  <div class="flip-container" onclick="NoSound(this, 'four')">
+    <div class="flipper">
+      <div class="front">
+        <h1>၄</h1>
+      </div>
+      <div class="back four">
+        
+      </div>
+    </div>
+  </div>
+  <div class="flip-container" onclick="NoSound(this, 'five')">
+    <div class="flipper">
+      <div class="front">
+       <h1>၅</h1>
+      </div>
+      <div class="back five">
+        
+      </div>
+    </div>
+  </div>
+  <div class="flip-container" onclick="NoSound(this, 'six')">
+    <div class="flipper">
+      <div class="front">
+       <h1>၆</h1>
+      </div>
+      <div class="back six">
+        
+      </div>
+    </div>
+  </div>
+  <div class="flip-container" onclick="NoSound(this, 'seven')">
+    <div class="flipper">
+      <div class="front">
+        <h1>၇</h1>
+      </div>
+      <div class="back seven">
+        
+      </div>
+    </div>
+  </div>
+  <div class="flip-container" onclick="NoSound(this, 'eight')">
+    <div class="flipper">
+      <div class="front">
+       <h1>၈</h1>
+      </div>
+      <div class="back eight">
+        
+      </div>
+    </div>
+  </div>
+  <div class="flip-container" onclick="NoSound(this, 'nine')">
+    <div class="flipper">
+      <div class="front">
+        <h1>၉</h1>
+      </div>
+      <div class="back nine">
+        
+      </div>
+    </div>
+  </div>
+  <div class="flip-container" onclick="NoSound(this, 'ten')">
+    <div class="flipper">
+      <div class="front">
+        <h1>၁၀</h1>
+      </div>
+      <div class="back ten">
+        
+      </div>
+    </div>
+  </div>
+  </div>
+  
+  <!-- Repeat this structure for a total of 10 flip divs -->
+</div>
+<script src="js/button_click.js"></script>
+
+<script>
+  const No = {
+      one: ['voice/pow/No/One.wav', 'voice/sakaw/No/One.wav'],
+      two: ['voice/pow/No/Two.wav', 'voice/sakaw/No/Two.wav'],
+      three: ['voice/pow/No/Three.wav', 'voice/sakaw/No/Three.wav'],
+      four: ['voice/pow/No/Four.wav', 'voice/sakaw/No/Four.wav'],
+      five: ['voice/pow/No/Five.wav', 'voice/sakaw/No/Five.wav'],
+      six: ['voice/pow/No/Six.wav', 'voice/sakaw/No/Six.wav'],
+      seven: ['voice/pow/No/Seven.wav', 'voice/sakaw/No/Seven.wav'],
+      eight: ['voice/pow/No/Eight.wav', 'voice/sakaw/No/Eight.wav'],
+      nine: ['voice/pow/No/Nine.wav', 'voice/sakaw/No/Nine.wav'],
+      ten: ['voice/pow/No/Ten.wav', 'voice/sakaw/No/Ten.wav'],
+  }
+  
+  let Karen = 'pow';
+  function NoSound(element, noName){
+    element.classList.toggle('flipped');
+    if(Karen == 'pow'){
+    const NoSound = new Audio(No[noName][0]);
+    NoSound.play();
+    }
+    if(Karen == 'sakaw'){
+    const NoSound = new Audio(No[noName][1]);
+    NoSound.play();
+    }
+  }
+
+  var btn = document.getElementById('btn');
+
+function moveButtonLeft(vhValue) {
+  btn.style.left = vhValue;
+}
+function leftClick() {
+    Karen = 'pow';
+    btn.style.left = '0'
+    document.querySelector('.pow').style.color = 'white';
+    document.querySelector('.sakaw').style.color = 'black';
+
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    btn.style.width = '9vh';
+    }
+}
+
+function rightClick() {
+    Karen = 'sakaw';
+    document.querySelector('.pow').style.color = 'black';
+    document.querySelector('.sakaw').style.color = 'white';
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        moveButtonLeft('8vh');
+        btn.style.width = '17vh';
+
+} else {
+     moveButtonLeft('16.5vh');
+}
+}
+const ok = document.querySelector('.ok');
+  const container1 = document.querySelector('.container');
+  const overlay1 = document.querySelector('.overlay');
+
+  ok.addEventListener('click', function(){
+    overlay1.style.display = 'none';
+    container1.style.opacity = 1;
+    container1.style.pointerEvents = 'auto';
+  })
+
+</script>
+
+</body>
+</html>

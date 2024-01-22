@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karen Kiddo Quiz</title>
+<link rel="icon" type="image/png" href="desktop_images/logo.png"/>
+<style>
+    @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
+    
+    body{
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background-color: antiquewhite;
+    }
+    .container {
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+    .mute {
+     position: absolute;
+     top: 1vh;
+     left: 19vh;
+     display: none;
+ }
+    .easy, .hard {
+      position: absolute;
+      top: 25vh;
+      left: 40vh;
+      width: 50vh;
+      height: 50vh;
+      border-radius: 20px;
+      border: 5px solid #fff;
+      background-color: #00FF00;
+      cursor: pointer;
+    }
+    
+    .hard {
+      left: 130vh;
+      background-color: #FF0000;
+    }
+    .hard h1 {
+      margin-top: 5vh;
+      margin-left: 2vh;
+      color: #fff;
+    }
+    .easy h1 {
+      margin-top: 5vh;
+      margin-left: 2vh;
+      color: #fff;
+    }
+    .easy h3, .hard h3 {
+      color: #fff;
+      margin-left: 10vh;
+      font-size: 1.5rem;
+    }
+    .hard h3 {
+      margin-left: 15vh;
+    }
+    .easy img{
+      margin-top: -5vh;
+      margin-left: 7vh;
+      width: 40vh;
+      height: 40vh;
+    }
+    .easy h1 {
+      margin-top: 5vh;
+    }
+    .easy h3 {
+      margin-top: -6vh;
+    }
+    .hard img {
+      margin-left: 10vh;
+      width: 30vh;
+      height: 25vh;
+    }
+    .easy:hover, .hard:hover {
+      transform: scale(1.1);
+    }
+    .pow, .sakaw {
+      position: absolute;
+      top: 50vh;
+      left: 75vh;
+      display: none;
+    }
+    .sakaw {
+      left: 120vh;
+    }
+    
+    
+    .nav {
+        width: 100%;
+        position: absolute;
+        height: 10%;
+        display: inline-block;
+        padding: 20px;
+    }
+    .btn{
+        padding: 15px 30px;
+        font-size: 20px;
+        font-weight: bold;
+        border: 8px solid #fff; /* Frame border color */
+        border-radius: 20px;
+        background-color: #FF9800; /* Green color like a jungle */
+        color: #FFF;
+        text-transform: uppercase;
+        cursor: pointer;
+        }
+        
+        .click-btn {
+          display: none;
+          position: absolute;
+          left: 90vh;
+          top: 40vh;
+          cursor: pointer;
+          animation: ring 0.4s infinite alternate;
+          transform-origin: bottom center;
+        }
+        
+        .repeat-btn {
+          position: absolute;
+          top: 15vh;
+          left: 105vh;
+          display: none;
+        }
+        .trofy {
+          position: absolute;
+          top: 35vh;
+          left: 70vh;
+          width: 70vh;
+          height: 25vh;
+          background-color: #fff;
+          border: 2px solid #fff; /* Frame border color */
+            border-radius: 20px;
+            color: #FF9800;
+            padding: 5vh;
+            text-align: center;
+            display: none;
+          
+        }
+        .trofy h1 {
+          padding-top: 2vh;
+        }
+        .trofy .btn {
+          padding-top: 2vh;
+          width: 20vh;
+          margin-right: 10vh;
+          font-size: 2.5rem;
+        }
+        .trofy .yes {
+          margin-right: 0;
+        }
+        
+        .btn:hover{
+          background-color: green;
+          color: yellow;
+        }
+        .click-btn .btn {
+          position: absolute;
+          width: 20vh;
+          height: 20vh;
+          font-size: 5rem;
+          
+        }
+        .click-btn .btn i {
+          text-align: center;
+          margin-left: 3.5vh;
+          margin-top: 3.5vh;
+        }
+        .star, .cup {
+          top: 1vh;
+          padding: 15px 30px;
+          position: absolute;
+          margin: 0;
+          border: 2px solid #fff;
+          font-size: 20px;
+  font-weight: bold;
+  
+            border-radius: 20px;
+ 
+  background-color: #FF9800; /* Green color like a jungle */
+  color: #FFF;
+  text-transform: uppercase;
+        }
+        .cup {
+          right: 10vh;;
+        }
+        .star {
+          right: 25vh;
+        }
+        
+        
+    .content {
+       left: 10%;
+       top: 25vh;
+        position: absolute;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 90%;
+        display: none;
+       
+    }
+    .content img {
+        border: 1px solid green;
+        width: 50vh;
+        height: 50vh;
+        margin: 5vh;
+        border: 8px solid #fff; 
+        border-radius: 20px;
+        cursor: pointer;
+    }
+    .animated-image.image1 {
+      background-color: #FF6F61;
+    }
+    .animated-image.image2 {
+      background-color: #ffffff;
+    }
+    .animated-image.image3 {
+      background-color: #1E90FF;
+    }
+    
+    .animated-image {
+
+  width: 100px;
+  height: auto; /* Auto height to maintain aspect ratio */
+  animation: imageAnimation 2s ease-in-out alternate infinite; /* Change duration and animation timing as needed */
+  
+}
+  .animated-image:hover {
+    background-color: green;
+  }
+    @keyframes imageAnimation {
+  0% {
+    transform: scale(1); /* Initial scale */
+  }
+  100% {
+    transform: scale(1.1); /* Scaled up */
+  }
+}
+@keyframes moveDownAnimation {
+  from {
+    transform: translateY(-100vh);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes ring {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(5deg); /* Adjust the angle for the bell movement */
+  }
+}
+@keyframes fallingStar {
+  from {
+    transform: translateY(-10%);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+
+.falling-star {
+  position: absolute;
+  font-size: 50px;
+  animation: fallingStar linear 1s forwards;
+}
+.sparkles {
+  position: absolute;
+  display: none;
+  /* Add other styling properties for the sparkles */
+}
+
+.hidden {
+  display: none;
+}
+/* Mobile View */
+@media screen and (max-width: 768px) {
+    .content {
+        flex-direction: column;
+        top: 15vh;
+        left: 12vh;
+       
+    }
+    .btn .exit {
+      margin-left: -10vh ;
+    }
+    
+    .content img {
+        width: 25vh;
+        height: 25vh;
+        margin: 2vh;
+    }
+    .exit {
+      margin-left: -3vh;
+    }
+    .star {
+      
+      right: 5vh;
+    }
+    .cup {
+      
+      padding-left: 15px;
+      height: 5vh;
+      right: -5vh;
+      width: 3vh;
+      height: 3.5vh;
+    }
+    .cup i {
+      display: inline;
+    }
+    .click-btn {
+          
+          top: 50vh;
+          left: 13vh;
+        }
+        .repeat-btn {
+          left: 45vh;
+          top: 60vh;
+        }
+        .trofy {
+          top: 45vh;
+          left: 5vh;
+          width: 40vh;
+          height: 20vh;
+          padding: 5vh;
+        }
+        .trofy h1 {
+          margin-top: -2vh;
+          
+        }
+        .trofy .btn {
+          font-size: 2rem;
+          margin: 2vh;
+          
+        }
+        .torfy .yes {
+          margin-left: 50vh;
+        }
+        .easy, .hard {
+          top: 20vh;
+          left: 15vh;
+          width: 30vh;
+          height: 30vh;
+        }
+        .hard {
+          top: 60vh;
+        }
+        .hard img {
+      margin-left: -1vh;
+      width: 20h;
+      height: 20vh;
+    }
+    .easy img {
+      margin-left: 1vh;
+      width: 30vh;
+      height: 30vh;
+    }
+    .easy h3 {
+      margin-top: -10vh;
+      margin-left: 2vh;
+    }
+    .easy h1 {
+      padding-left: 5px;
+      padding-top: 8vh;
+    }
+    .easy h1 {
+      margin-top: -8vh;
+    }
+    .hard h1 {
+      margin-top: -2vh;
+    }
+    .hard h3 {
+      margin-top: -3vh;
+      margin-left: 9vh;
+    }
+    .pow, .sakaw {
+      left: 16vh;
+    }
+    .sakaw {
+      top: 65vh;
+    }
+    .pow span{
+      font-size:32px;
+    }
+    .sakaw span{
+      font-size:32px;
+      padding:15px 20px;
+    }
+    .mute {
+      left: 17vh;
+    }
+}
+</style>
+</head>
+<body>
+    <div class="container">
+       <div class="easy" onclick="Level('easy')">
+         <img src="desktop_images/easy.png">
+         <h3>ကရင်အသံ+ဗမာအသံ</h3>
+         <h1>လွယ်ကူ</h1>
+        </div>
+      <div class="hard" onclick="Level('hard')">
+        <img src="desktop_images/logo.png">
+        <h3>ကရင်အသံ</h3>
+        <h1>နည်းနည်းခက်</h1>
+      </div>
+      <div class="pow">
+        <span class="btn" style="padding:15px 48px;">ပိုးကရင်</span>
+      </div>
+      <div class="sakaw">
+        <span class="btn">စကေားကရင်</span>
+      </div>
+      <div id="falling-stars-container"></div>
+      <div class="trofy">
+        <h1>ဖလားရပါပြီ🏆 ဆက်သွားမလား?</h1>
+        
+          <span class="btn no" onclick="exit()"><i class="fa-solid fa-xmark"></i></span>
+          <span class="btn yes"><i class="fa-solid fa-thumbs-up"></i></span>
+        
+      </div>
+      <div class="click-btn">
+        <span class="btn"><i class="fa-solid fa-volume-high"></i></span>
+      </div>
+      <div class="repeat-btn">
+        <span class="btn"><i class="fa-solid fa-volume-high"></i></span>
+      </div>
+        <div class="nav">
+            <span class="btn exit"><i class="fa-solid fa-chevron-left"></i></span>
+            <span class="btn music"><i class="fa-solid fa-music"></i></span>
+            <span class="mute"><img src="desktop_images/mute.png" width="50px" height="50px"></span>
+            <span class="star">
+            <i class="fa-solid fa-star star1"></i>
+            <i class="fa-solid fa-star star2"></i>
+            <i class="fa-solid fa-star star3"></i></span>
+            <span class="cup"><i class="cups-number"></i><i style="color: yellow;" class="fas fa-trophy"></i></span>
+            
+        </div>
+        <div class="content">
+         
+
+            <img class="animated-image image1" data-index="1">
+            <img class="animated-image image2" data-index="2">
+            <img class="animated-image image3" data-index="3">
+            <audio id="karen" src=""></audio>
+            <audio id="burmese" src=""></audio>
+
+        </div>
+    </div>
+    <script src="js/button_click.js"></script>
+    <script>
+      const clickBtn = document.querySelector('.click-btn');
+      const repeatBtn = document.querySelector('.repeat-btn');
+      const exitBtn = document.querySelector('.exit');
+      const musicBtn = document.querySelector('.music');
+      const content = document.querySelector('.content');
+      const mutePh = document.querySelector('.mute');
+      const img1 = document.querySelector('.image1');
+      const img2 = document.querySelector('.image2');
+      const img3 = document.querySelector('.image3');
+      const images = document.querySelectorAll('.animated-image');
+      const karen = document.getElementById('karen');
+      const burmese = document.getElementById('burmese');
+      const star1 = document.querySelector('.star1');
+      const star2 = document.querySelector('.star2');
+      const star3 = document.querySelector('.star3');
+      const trofy = document.querySelector('.trofy');
+      const cupNumber = document.querySelector('.cups-number');
+      const yes = document.querySelector('.yes');
+      const easy1 = document.querySelector('.easy');
+      const hard1 = document.querySelector('.hard');
+      const pow = document.querySelector('.pow');
+      const sakaw = document.querySelector('.sakaw');
+
+      let selectedQuiz;
+      let level;
+      let Karen;
+      let star = 0;
+      let cup = 0;
+
+      let state = 0;
+      let backgroundSound;
+      let mute = false;
+
+      musicBtn.addEventListener('click', function(){
+        if(mute == false){
+          mute = true;
+          backgroundSound.pause();
+          mutePh.style.display = 'block';
+
+        }
+        else {
+          mute = false;
+          backgroundSound.play();
+          mutePh.style.display = 'none';
+        }
+      });
+      mutePh.addEventListener('click', function(){
+        mute = false;
+          backgroundSound.play();
+          mutePh.style.display = 'none';
+      });
+      
+      
+      exitBtn.addEventListener('click', function(){
+        burmese.src = "";
+        if(state == 0){
+          window.location.href = 'home.html';
+        }
+        if(state == 1){
+          pow.style.display = 'none';
+          sakaw.style.display = 'none';
+          easy1.style.display = 'block';
+          hard1.style.display = 'block';
+          backgroundSound.pause();
+        }
+        if (state == 2){
+          pow.style.display = 'block';
+          sakaw.style.display = 'block';
+          clickBtn.style.display = 'none';
+          content.style.display = 'none';
+          repeatBtn.style.display = 'none';
+          state = 1;
+        }
+      });
+      //Show Achieve Cups
+      cupNumber.textContent = localStorage.getItem('cups');
+
+      const Quiz = [
+        {
+          Image1: 'animals/fish.png',
+          Image2: 'family_png/mother.png',
+          Image3: 'food_png/f17.png',
+          Pow: 'voice/pow/Foods/Rice.wav',
+          Sakaw: 'voice/sakaw/Foods/Rice.wav',
+          Burmese: 'voice/burmese/Foods/Rice.wav',
+          Correct: '/food_png/f17.png'
+        },
+
+        {
+          Image1: 'food_png/f13.png',
+          Image2: 'body/hand.png',
+          Image3: 'family_png/grandfather.png',
+          Pow: 'voice/pow/Foods/ChickenCurry.wav',
+          Sakaw: 'voice/sakaw/Foods/ChickenCurry.wav',
+          Burmese: 'voice/burmese/Foods/ChickenCurry.wav',
+          Correct: '/food_png/f13.png'
+        },
+        {
+          Image1: 'animals/bird.png',
+          Image2: 'food_png/f14.png',
+          Image3: 'body/eye.png',
+          Pow: 'voice/pow/Foods/Pork.wav',
+          Sakaw: 'voice/sakaw/Foods/Pork.wav',
+          Burmese: 'voice/burmese/Foods/Pork.wav',
+          Correct: '/food_png/f14.png'
+        },
+
+        {
+          Image1: 'animals/bird.png',
+          Image2: 'food_png/f15.png',
+          Image3: 'family_png/nyimalay.png',
+          Pow: 'voice/pow/Foods/Beef.wav',
+          Sakaw: 'voice/sakaw/Foods/Beef.wav',
+          Burmese: 'voice/burmese/Foods/Beef.wav',
+          Correct: '/food_png/f15.png'
+        },
+
+        {
+          Image1: 'family_png/aunty.png',
+          Image2: 'food_png/f16.png',
+          Image3: 'body/mouth.png',
+          Pow: 'voice/pow/Foods/FishCurry.wav',
+          Sakaw: 'voice/sakaw/Foods/FishCurry.wav',
+          Burmese: 'voice/burmese/Foods/FishCurry.wav',
+          Correct: '/food_png/f16.png'
+        },
+
+        {
+          Image1: 'family_png/nyimalay.png',
+          Image2: 'animals/pig.png',
+          Image3: 'food_png/f4.png',
+          Pow: 'voice/pow/Foods/Apple.wav',
+          Sakaw: 'voice/sakaw/Foods/Apple.wav',
+          Burmese: 'voice/burmese/Foods/Apple.wav',
+          Correct: '/food_png/f4.png'
+        },
+
+        {
+          Image1: 'animals/monkey.png',
+          Image2: 'food_png/f6.png',
+          Image3: 'body/eye.png',
+          Pow: 'voice/pow/Foods/PileApple.wav',
+          Sakaw: 'voice/sakaw/Foods/PileApple.wav',
+          Burmese: 'voice/burmese/Foods/PileApple.wav',
+          Correct: '/food_png/f6.png'
+        },
+        {
+          Image1: 'food_png/f5.png',
+          Image2: 'family_png/brother.png',
+          Image3: 'body/leg.png',
+          Pow: 'voice/pow/Foods/Orange.wav',
+          Sakaw: 'voice/sakaw/Foods/Orange.wav',
+          Burmese: 'voice/burmese/Foods/Orange.wav',
+          Correct: '/food_png/f5.png'
+        },
+        {
+          Image1: 'animals/monkey.png',
+          Image2: 'body/head.png',
+          Image3: 'food_png/f8.png',
+          Pow: 'voice/pow/Foods/Banana.wav',
+          Sakaw: 'voice/sakaw/Foods/Banana.wav',
+          Burmese: 'voice/burmese/Foods/Banana.wav',
+          Correct: '/food_png/f8.png'
+        },
+        {
+          Image1: 'family_png/uncle.png',
+          Image2: 'food_png/f18.png',
+          Image3: 'animals/cat.png',
+          Pow: 'voice/pow/Foods/Watermelon.wav',
+          Sakaw: 'voice/sakaw/Foods/Watermelon.wav',
+          Burmese: 'voice/burmese/Foods/Watermelon.wav',
+          Correct: '/food_png/f18.png'
+        },
+        {
+          Image1: 'food_png/f7.png',
+          Image2: 'body/hand.png',
+          Image3: 'animals/dog.png',
+          Pow: 'voice/pow/Foods/Mango.wav',
+          Sakaw: 'voice/sakaw/Foods/Mango.wav',
+          Burmese: 'voice/burmese/Foods/Mango.wav',
+          Correct: '/food_png/f7.png'
+        },
+        {
+          Image1: 'family_png/sister.png',
+          Image2: 'animals/chicken.png',
+          Image3: 'food_png/f1.png',
+          Pow: 'voice/pow/Foods/EggPlant.wav',
+          Sakaw: 'voice/sakaw/Foods/EggPlant.wav',
+          Burmese: 'voice/burmese/Foods/EggPlant.wav',
+          Correct: '/food_png/f1.png'
+        },
+        {
+          Image1: 'food_png/f10.png',
+          Image2: 'animals/bird.png',
+          Image3: 'body/nose.png',
+          Pow: 'voice/pow/Foods/Tomato.wav',
+          Sakaw: 'voice/sakaw/Foods/Tomato.wav',
+          Burmese: 'voice/burmese/Foods/Tomato.wav',
+          Correct: '/food_png/f10.png'
+        },
+        {
+          Image1: 'animals/fish.png',
+          Image2: 'body/ear.png',
+          Image3: 'food_png/f3.png',
+          Pow: 'voice/pow/Foods/Grape.wav',
+          Sakaw: 'voice/sakaw/Foods/Grape.wav',
+          Burmese: 'voice/burmese/Foods/Grape.wav',
+          Correct: '/food_png/f3.png'
+        },
+        {
+          Image1: 'food_png/f11.png',
+          Image2: 'animals/dog.png',
+          Image3: 'food_png/f13.png',
+          Pow: 'voice/pow/Foods/Cucumber.wav',
+          Sakaw: 'voice/sakaw/Foods/Cucumber.wav',
+          Burmese: 'voice/burmese/Foods/Cucumber.wav',
+          Correct: '/food_png/f11.png'
+        },
+        {
+          Image1: 'food_png/f13.png',
+          Image2: 'food_png/f9.png',
+          Image3: 'food_png/f16.png',
+          Pow: 'voice/pow/Foods/ManKyiThi.wav',
+          Sakaw: 'voice/sakaw/Foods/ManKyiThi.wav',
+          Burmese: 'voice/burmese/Foods/ManKyiThi.wav',
+          Correct: '/food_png/f9.png'
+        },
+        {
+          Image1: 'family_png/grandfather.png',
+          Image2: 'family_png/sister.png',
+          Image3: 'family_png/father.png',
+          Pow: 'voice/pow/Family/Father.wav',
+          Sakaw: 'voice/sakaw/Family/Father.wav',
+          Burmese: 'voice/burmese/Family/Father.wav',
+          Correct: '/family_png/father.png'
+        },
+        {
+          Image1: 'family_png/mother.png',
+          Image2: 'family_png/sister.png',
+          Image3: 'family_png/uncle.png',
+          Pow: 'voice/pow/Family/Mother.wav',
+          Sakaw: 'voice/sakaw/Family/Mother.wav',
+          Burmese: 'voice/burmese/Family/Mother.wav',
+          Correct: '/family_png/mother.png'
+        },
+        {
+          Image1: 'family_png/father.png',
+          Image2: 'family_png/nyimalay.png',
+          Image3: 'family_png/grandfather.png',
+          Pow: 'voice/pow/Family/GrandFather.wav',
+          Sakaw: 'voice/sakaw/Family/GrandFather.wav',
+          Burmese: 'voice/burmese/Family/GrandFather.wav',
+          Correct: '/family_png/grandfather.png'
+        },
+        {
+          Image1: 'family_png/grandmother.png',
+          Image2: 'family_png/mother.png',
+          Image3: 'family_png/sister.png',
+          Pow: 'voice/pow/Family/GrandMother.wav',
+          Sakaw: 'voice/sakaw/Family/GrandMother.wav',
+          Burmese: 'voice/burmese/Family/GrandMother.wav',
+          Correct: '/family_png/grandmother.png'
+        },
+        {
+          Image1: 'family_png/aunty.png',
+          Image2: 'family_png/grandmother.png',
+          Image3: 'family_png/uncle.png',
+          Pow: 'voice/pow/Family/Uncle.wav',
+          Sakaw: 'voice/sakaw/Family/Uncle.wav',
+          Burmese: 'voice/burmese/Family/Uncle.wav',
+          Correct: '/family_png/uncle.png'
+        },
+        {
+          Image1: 'family_png/aunty.png',
+          Image2: 'family_png/nyimalay.png',
+          Image3: 'family_png/brother.png',
+          Pow: 'voice/pow/Family/Aunty.wav',
+          Sakaw: 'voice/sakaw/Family/Aunty.wav',
+          Burmese: 'voice/burmese/Family/Aunty.wav',
+          Correct: '/family_png/aunty.png'
+        },
+        {
+          Image1: 'family_png/nyilay.png',
+          Image2: 'family_png/father.png',
+          Image3: 'family_png/brother.png',
+          Pow: 'voice/pow/Family/ElderBrother.wav',
+          Sakaw: 'voice/sakaw/Family/ElderBrother.wav',
+          Burmese: 'voice/burmese/Family/ElderBrother.wav',
+          Correct: '/family_png/brother.png'
+        },
+        {
+          Image1: 'family_png/sister.png',
+          Image2: 'family_png/mother.png',
+          Image3: 'family_png/grandmother.png',
+          Pow: 'voice/pow/Family/ElderSister.wav',
+          Sakaw: 'voice/sakaw/Family/ElderSister.wav',
+          Burmese: 'voice/burmese/Family/ElderSister.wav',
+          Correct: '/family_png/sister.png'
+        },
+        {
+          Image1: 'family_png/nyilay.png',
+          Image2: 'family_png/nyimalay.png',
+          Image3: 'family_png/grandmother.png',
+          Pow: 'voice/pow/Family/YoungerBrother.wav',
+          Sakaw: 'voice/sakaw/Family/YoungerBrother.wav',
+          Burmese: 'voice/burmese/Family/YoungerBrother.wav',
+          Correct: '/family_png/nyilay.png'
+        },
+        {
+          Image1: 'family_png/nyimalay.png',
+          Image2: 'family_png/sister.png',
+          Image3: 'family_png/mother.png',
+          Pow: 'voice/pow/Family/YoungerSister.wav',
+          Sakaw: 'voice/sakaw/Family/YoungerSister.wav',
+          Burmese: 'voice/burmese/Family/YoungerSister.wav',
+          Correct: '/family_png/nyimalay.png'
+        },
+        {
+          Image1: 'body/head.png',
+          Image2: 'animals/monkey.png',
+          Image3: 'body/hand.png',
+          Pow: 'voice/pow/Body/Head.wav',
+          Sakaw: 'voice/sakaw/Body/Head.wav',
+          Burmese: 'voice/burmese/Body/Head.wav',
+          Correct: '/body/head.png'
+        },
+        {
+          Image1: 'animals/chicken.png',
+          Image2: 'body/mouth.png',
+          Image3: 'body/ear.png',
+          Pow: 'voice/pow/Body/Mouth.wav',
+          Sakaw: 'voice/sakaw/Body/Mouth.wav',
+          Burmese: 'voice/burmese/Body/Mouth.wav',
+          Correct: '/body/mouth.png'
+        },
+        {
+          Image1: 'animals/bird.png',
+          Image2: 'animals/fish.png',
+          Image3: 'body/hand.png',
+          Pow: 'voice/pow/Body/Hand.wav',
+          Sakaw: 'voice/sakaw/Body/Hand.wav',
+          Burmese: 'voice/burmese/Body/Hand.wav',
+          Correct: '/body/hand.png'
+        },
+        {
+          Image1: 'animals/cat.png',
+          Image2: 'body/nose.png',
+          Image3: 'body/ear.png',
+          Pow: 'voice/pow/Body/Nose.wav',
+          Sakaw: 'voice/sakaw/Body/Nose.wav',
+          Burmese: 'voice/burmese/Body/Nose.wav',
+          Correct: '/body/nose.png'
+        },
+        {
+          Image1: 'food_png/f5.png',
+          Image2: 'body/eye.png',
+          Image3: 'body/mouth.png',
+          Pow: 'voice/pow/Body/Eye.wav',
+          Sakaw: 'voice/sakaw/Body/Eye.wav',
+          Burmese: 'voice/burmese/Body/Eye.wav',
+          Correct: '/body/eye.png'
+        },
+        {
+          Image1: 'body/ear.png',
+          Image2: 'food_png/f6.png',
+          Image3: 'animals/prown.png',
+          Pow: 'voice/pow/Body/Ear.wav',
+          Sakaw: 'voice/sakaw/Body/Ear.wav',
+          Burmese: 'voice/burmese/Body/Ear.wav',
+          Correct: '/body/ear.png'
+        },
+        {
+          Image1: 'animals/pig.png',
+          Image2: 'animals/dog.png',
+          Image3: 'body/leg.png',
+          Pow: 'voice/pow/Body/Leg.wav',
+          Sakaw: 'voice/sakaw/Body/Leg.wav',
+          Burmese: 'voice/burmese/Body/Leg.wav',
+          Correct: '/body/leg.png'
+        },
+        {
+          Image1: 'animals/fish.png',
+          Image2: 'family_png/father.png',
+          Image3: 'food_png/f18.png',
+          Pow: 'voice/pow/Animals/Fish.wav',
+          Sakaw: 'voice/sakaw/Animals/Fish.wav',
+          Burmese: 'voice/burmese/Animals/Fish.wav',
+          Correct: '/animals/fish.png'
+        },
+        {
+          Image1: 'animals/pig.png',
+          Image2: 'animals/cat.png',
+          Image3: 'body/leg.png',
+          Pow: 'voice/pow/Animals/Cat.wav',
+          Sakaw: 'voice/sakaw/Animals/Cat.wav',
+          Burmese: 'voice/burmese/Animals/Cat.wav',
+          Correct: '/animals/cat.png'
+        },
+        {
+          Image1: 'food_png/f4.png',
+          Image2: 'body/hand.png',
+          Image3: 'animals/dog.png',
+          Pow: 'voice/pow/Animals/Dog.wav',
+          Sakaw: 'voice/sakaw/Animals/Dog.wav',
+          Burmese: 'voice/burmese/Animals/Dog.wav',
+          Correct: '/animals/dog.png'
+        },
+        {
+          Image1: 'family_png/grandfather.png',
+          Image2: 'animals/bird.png',
+          Image3: 'food_png/f14.png',
+          Pow: 'voice/pow/Animals/Bird.wav',
+          Sakaw: 'voice/sakaw/Animals/Bird.wav',
+          Burmese: 'voice/burmese/Animals/Bird.wav',
+          Correct: '/animals/bird.png'
+        },
+        {
+          Image1: 'food_png/f5.png',
+          Image2: 'food_png/f8.png',
+          Image3: 'animals/prown.png',
+          Pow: 'voice/pow/Animals/Prown.wav',
+          Sakaw: 'voice/sakaw/Animals/Prown.wav',
+          Burmese: 'voice/burmese/Animals/Prown.wav',
+          Correct: '/animals/prown.png'
+        },
+        {
+          Image1: 'animals/chicken.png',
+          Image2: 'food_png/f13.png',
+          Image3: 'body/hand.png',
+          Pow: 'voice/pow/Animals/Chicken.wav',
+          Sakaw: 'voice/sakaw/Animals/Chicken.wav',
+          Burmese: 'voice/burmese/Animals/Chicken.wav',
+          Correct: '/animals/chicken.png'
+        },
+        {
+          Image1: 'food_png/f14.png',
+          Image2: 'food_png/f4.png',
+          Image3: 'animals/pig.png',
+          Pow: 'voice/pow/Animals/Pig.wav',
+          Sakaw: 'voice/sakaw/Animals/Pig.wav',
+          Burmese: 'voice/burmese/Animals/Pig.wav',
+          Correct: '/animals/pig.png'
+        },
+        {
+          Image1: 'animals/monkey.png',
+          Image2: 'family_png/aunty.png',
+          Image3: 'body/nose.png',
+          Pow: 'voice/pow/Animals/Monkey.wav',
+          Sakaw: 'voice/sakaw/Animals/Monkey.wav',
+          Burmese: 'voice/burmese/Animals/Monkey.wav',
+          Correct: '/animals/monkey.png'
+        },
+  ];
+      
+        // Quiz Upload
+        function uploadQuiz (){
+          content.style.display = 'block';
+          
+          repeatBtn.style.display = 'block';
+          clickBtn.style.display = 'none';
+          images.forEach(image => {
+          image.style.pointerEvents = 'none';
+        });
+
+        selectedQuiz = getRandomNonRepeating(0, 40);
+          console.log(Quiz.length);
+          console.log(selectedQuiz);
+          img1.src = Quiz[selectedQuiz].Image1;
+          img2.src = Quiz[selectedQuiz].Image2;
+          img3.src = Quiz[selectedQuiz].Image3;
+          console.log(level);
+        
+        if(level == 'easy'){
+          console.log('easy run and level is ' + level);
+          if(Karen == 'pow'){
+        karen.src = Quiz[selectedQuiz].Pow;
+          }
+          else{
+            karen.src = Quiz[selectedQuiz].Sakaw;
+          }
+        burmese.src = Quiz[selectedQuiz].Burmese;
+        karen.addEventListener('ended', () => {
+          setTimeout(() => {
+            burmese.play();
+          }, 200); // Delay of 1 second (1000 milliseconds)
+        });
+        karen.play();
+        burmese.addEventListener('ended', () => {
+        images.forEach(image => {
+          image.style.pointerEvents = 'auto';
+          image.addEventListener('click', checKImage);
+        });
+      });
+      }
+
+      else{
+        console.log('hard run and level is ' + level);
+        if(Karen == 'pow'){
+        karen.src = Quiz[selectedQuiz].Pow;
+        }
+        else {
+          karen.src = Quiz[selectedQuiz].Sakaw;
+
+        }
+        karen.play();
+        karen.addEventListener('ended', () => {
+        images.forEach(image => {
+          image.style.pointerEvents = 'auto';
+          image.addEventListener('click', checKImage);
+        });
+      });
+      }
+      
+
+
+
+        //Button are clickable after pronounciation complete
+        
+
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+        clickBtn.addEventListener('click', uploadQuiz);
+        pow.addEventListener('click', function(){
+          EthicGroup('pow');});
+        sakaw.addEventListener('click', function(){
+        EthicGroup('sakaw');});
+
+
+        });
+        
+        // Check Image 
+        function checKImage(e){
+          const imageUrl = new URL(e.target.src);
+          const clickImageSrc = imageUrl.pathname;
+
+          if(clickImageSrc == Quiz[selectedQuiz].Correct){
+            const correctAudio = new Audio('sounds/correct.mp3');
+            correctAudio.play();
+            star = star + 1;
+            if(star == 1 || star == 2){
+                if(star == 1){
+                star1.style.color = 'yellow';
+                }
+                if(star == 2){
+                  star2.style.color = 'yellow';
+                }
+                for (let i = 0; i < 100; i++) {
+              setTimeout(() => {
+                createFallingStar('⭐');
+              }, Math.random() * 1000); // Adjust timing as needed
+            }
+
+            setTimeout(() => {
+            // Show clickBtn after 500 milliseconds
+            clickBtn.style.display = 'block';
+
+            // Hide content and repeatBtn after showing clickBtn
+            setTimeout(() => {
+              
+              content.style.display = 'none';
+              repeatBtn.style.display = 'none';
+            }, 100);
+          }, 2000);
+            
+            }
+            
+
+
+            if(star == 3){
+              star3.style.color = 'yellow';
+              const yayyAudio = new Audio('sounds/yayy.wav');
+              const correctAudio = new Audio('sounds/correct.mp3');
+              correctAudio.play();
+
+              setTimeout(() => {
+            // Show clickBtn after 500 milliseconds
+            trofy.style.display = 'block';
+            yayyAudio.play();
+            
+
+            for (let i = 0; i < 100; i++) {
+              setTimeout(() => {
+                createFallingStar('🏆');
+              }, Math.random() * 1000); // Adjust timing as needed
+            }
+            
+            cup = 1;
+            let cupVaule;
+            const cups = parseInt(localStorage.getItem('cups')) || 0;
+            if(cups == null || cups == undefined){
+              localStorage.setItem('cups', cup);
+            }
+            else {
+              localStorage.setItem('cups', cups+cup);
+            }
+            cupVaule = localStorage.getItem('cups');
+            console.log(cupVaule);
+            cupNumber.textContent = cupVaule;
+
+            // Hide content and repeatBtn after showing clickBtn
+            setTimeout(() => {
+              star1.style.color = 'white';
+              star2.style.color = 'white';
+              star3.style.color = 'white';
+
+              repeatBtn.style.display = 'none';
+              content.style.display = 'none';
+            }, 100);
+          }, 2000);
+          star = 0;
+
+            }
+
+
+
+               
+          }
+          else{
+            const ohnoAudio = new Audio('sounds/ohno.mp3');
+            ohnoAudio.play();
+            if ('vibrate' in navigator) {
+            // Vibrate for 200ms
+            navigator.vibrate(200);
+          } else {
+            console.log('Vibration not supported');
+          }
+            console.log(clickImageSrc);
+          }
+        }
+ 
+        function createFallingStar(emoji) {
+  const star = document.createElement('div');
+  star.innerHTML = emoji;
+  star.classList.add('falling-star');
+  star.style.left = `${Math.random() * window.innerWidth}px`;
+  star.style.top = `-${Math.random() * window.innerHeight}px`;
+  document.body.appendChild(star);
+
+  // Remove the star after animation ends
+  star.addEventListener('animationend', () => {
+    star.remove();
+  });
+}
+
+function getRandomNonRepeating(min, max) {
+  const numbers = Array.from({ length: max - min + 1 }, (_, index) => index + min);
+  let currentIndex = numbers.length, tempValue, randomIndex;
+
+  // While there remain elements to shuffle
+  while (currentIndex !== 0) {
+    // Pick a remaining element
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    // Swap it with the current element
+    tempValue = numbers[currentIndex];
+    numbers[currentIndex] = numbers[randomIndex];
+    numbers[randomIndex] = tempValue;
+  }
+
+  return numbers.pop(); // Return the last number from the shuffled array
+}
+
+
+        // Events
+
+
+        // Repeat Button
+        repeatBtn.addEventListener('click', function(){
+          if(level == 'easy'){
+            console.log('repeat run level is ' + level);
+            if(Karen == 'pow'){
+        karen.src = Quiz[selectedQuiz].Pow;
+            }
+            else {
+              karen.src = Quiz[selectedQuiz].Sakaw;
+            }
+        burmese.src = Quiz[selectedQuiz].Burmese;
+        karen.addEventListener('ended', () => {
+          setTimeout(() => {
+            burmese.play();
+          }, 500);
+        });
+        karen.play();
+      }
+      else {
+        if(Karen == 'pow'){
+          karen.src = Quiz[selectedQuiz].Pow;
+        }
+        else {
+          karen.src = Quiz[selectedQuiz].Sakaw;
+        }
+        karen.play();
+      }
+      });
+
+      yes.addEventListener('click', function(){
+        trofy.style.display = 'none';
+        clickBtn.style.display = 'block';
+      });
+     
+      
+      function Level(lvl){
+        level =  lvl;
+        state = 1;
+        easy1.style.display = 'none';
+        hard1.style.display = 'none';
+        sakaw.style.display = 'block';
+        pow.style.display = 'block';
+
+        backgroundSound = new Audio('sounds/background_music.wav');
+        backgroundSound.play();
+        backgroundSound.volume = 0.3;
+        backgroundSound.loop = true;
+      }
+      function EthicGroup(karen){
+        Karen = karen;
+        state = 2;
+        const clickBtn = document.querySelector('.click-btn');
+        console.log(karen);
+        document.querySelector('.sakaw').style.display = 'none';
+        document.querySelector('.pow').style.display = 'none';
+        if (clickBtn) {
+          clickBtn.style.setProperty('display', 'block', 'important');
+    } else {
+      console.error('Element with class .click-btn not found.');
+    }
+      }
+
+      function exit(){
+        trofy.style.display = 'none';
+        easy1.style.display = 'block';
+        hard1.style.display = 'block';
+        backgroundSound.pause();
+        burmese.src = "";
+      }
+
+      exit.add
+    </script>
+</body>
+</html>

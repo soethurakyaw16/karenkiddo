@@ -1,0 +1,54 @@
+.btn {
+  padding: 15px 30px;
+  font-size: 20px;
+  font-weight: bold;
+  border: 8px solid #fff; /* Frame border color */
+            border-radius: 20px;
+  border-radius: 30px;
+  background-color: #FF9800; /* Green color like a jungle */
+  color: #FFF;
+  text-transform: uppercase;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s ease;
+    }
+
+    .exit {
+      background-color: #FF3366; /* Red */
+    }
+
+    .music {
+      background-color: #33CCFF; /* Blue */
+    }
+
+    .repeat {
+      background-color: #FFD700; /* Yellow */
+    }
+
+    .spark {
+      position: absolute;
+      font-size: 30px;
+      opacity: 1;
+      animation: sparkAnimation 1.5s ease-out;
+    }
+
+    @keyframes sparkAnimation {
+      0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+      10% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+        transform: translate(0, -50px) scale(1.2);
+      }
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.24);
+    }

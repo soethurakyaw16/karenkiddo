@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Image Animation</title>
+  <style>
+    .container {
+      position: relative;
+    }
+
+    .image-div, .empty-div {
+      width: 200px;
+      height: 200px;
+      border: 2px dashed #ccc;
+      position: absolute;
+      top: 50px;
+      left: 50px;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .empty-div {
+      border: 2px dashed #f00;
+      top: 300px;
+      left: 50px;
+    }
+
+    /* Apply animation to the image */
+    #movingImage {
+      transition: transform 0.5s ease-in-out;
+    }
+
+    /* Animation class */
+    .move-image {
+      animation: moveImageAnimation 0.5s forwards;
+    }
+
+    @keyframes moveImageAnimation {
+      0% {
+        transform: translate(0, 0);
+      }
+      100% {
+        transform: translate(150px, 250px); /* Adjust these values to match the target div position */
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="image-div" id="imageDiv">
+      <img src="animals/fish.png" alt="Your Image" id="movingImage">
+    </div>
+    <div class="empty-div" id="targetDiv"></div>
+  </div>
+
+  <script>
+    const image = document.getElementById('movingImage');
+    const targetDiv = document.getElementById('targetDiv');
+    const imageDiv = document.getElementById('imageDiv');
+
+    image.addEventListener('click', () => {
+      image.classList.add('move-image'); // Apply CSS animation
+      setTimeout(() => {
+        targetDiv.appendChild(image); // Move image to target div after animation
+        image.style.transform = 'translate(0, 0)'; // Reset image position
+        image.classList.remove('move-image'); // Remove animation class
+      }, 1000); // Adjust timing to match animation duration
+    });
+  </script>
+</body>
+</html>

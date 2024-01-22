@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karen Kiddo | Cateogories</title>
+<link rel="icon" type="image/png" href="desktop_images/logo.png"/>
+<style>
+     @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
+     body {
+         background-image: url('desktop_images/category_background.jpg');
+         background-size: cover;
+         overflow: hidden;
+     }
+     .container {
+         position: relative;
+         width: 100%;
+         height: 100%;
+    }
+    .container .textkid{
+        position: absolute;
+        left: 15%;
+    }
+    .nav {
+        margin-top: 20px;
+        position: absolute;
+        width: 100%;
+        height: 5%;
+        padding: 20px;
+    }
+    .btn{
+      padding: 15px 30px;
+      font-size: 20px;
+      font-weight: bold;
+      border: 8px solid #fff; /* Frame border color */
+      border-radius: 20px;
+      background-color: #FF9800; /* Green color like a jungle */
+      color: #FFF;
+      text-transform: uppercase;
+      cursor: pointer;
+ }
+ .btn:hvoer {
+     background-color: green;
+ }
+ .logo {
+     position: absolute;
+     top: -3vh;
+     left: 20vh;
+     border: 1px solid #fff;
+     border-radius: 50%;
+     background-color: #fff;
+ }
+    .content .category{
+        position: relative;
+    }
+    .category h1{
+        position: absolute;
+        bottom: -12px;
+        padding:5px 10px 0 0;
+        border-radius: 0 10px 0 0;
+        width: fit-content;
+        font-size: 16px;
+        background: #FFF;
+    }
+ .logo img {
+     border-radius: 50%;
+     width: 90px;
+     height: 90px;
+ }
+    .content {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        position: absolute; 
+        width: 100%;
+        height: 95%;
+        top: 10vh;
+        left: 10vh;
+        cursor: pointer;
+    }
+    #family:hover, #food:hover, #animal:hover, #body:hover, #number:hover {
+      transform: scale(1.1);
+    }
+    .category {
+        margin: 5vh;
+        width: 50vh;
+        height: 25vh;
+        border: 8px solid #fff;
+        border-radius: 20px;
+    }
+    #family {
+        background-image: url('desktop_images/Livingroom_background.png');
+        background-size: cover;
+    }
+    #food {
+        background-image: url('desktop_images/food_background.png');
+        background-size: cover;
+    }
+    #animal {
+        background-image: url('desktop_images/animal_background.png');
+        background-size: cover;
+    }
+    #body {
+        background-image: url('body/body.png');
+        background-size: 23vh;
+        background-repeat: no-repeat;
+        background-color: #fff;
+    }
+    #number {
+        background-image: url('desktop_images/no_background3.png');
+        background-size: cover;
+    }
+    @media (max-width: 768px) {
+        .content {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+</style>
+</head>
+<body>
+ <div class="container">
+    
+     <div class="nav">
+        <a href="home.html"><span class="btn exit"><i class="fa-solid fa-chevron-left"></i></span></a>
+        <span class="logo"><a href="home.html"><img src="redkid.jpg"></a></span>
+       
+     </div>
+     <div class="textkid"><a href="home.html"><img src="logo_text.png" alt=""></a></div>
+     <div class="content">
+         <div class="category" id="family">
+            <h1>ကရင်လေးရဲ့မိသားစု</h1>
+         </div>
+         <div class="category" id="food">
+            <h1>ကရင်လေကြိုက်တဲ့အစားအစာ</h1>
+         </div>
+         <div class="category" id="animal">
+            <h1>ကရင်လေးချစ်တဲ့တိရစ္ဆာန်လေးတွေ</h1>
+
+         </div>
+         <div class="category" id="body">
+            <h1>ကရင်လေးရဲ့ခန္ဓာကိုယ်</h1>
+         </div>
+         <div class="category" id="number">
+            <h1>အရေအတွက်လေးများ</h1>
+         </div>
+    </div>
+ </div>
+ <script src="js/button_click.js"></script>
+ <script>
+     const categories = document.querySelectorAll('.category');
+
+categories.forEach(function(category, index){
+  category.addEventListener('click', function(){
+    const clickSound = new Audio('sounds/content_click.wav');
+    clickSound.play();
+  })
+});
+const familyLink = document.getElementById('family');
+const foodLink = document.getElementById('food');
+const animalLink = document.getElementById('animal');
+const bodyLink = document.getElementById('body');
+const noLink = document.getElementById('number');
+let exitBtn = document.querySelector('.exit');
+
+
+familyLink.addEventListener('click', function(){
+    window.open('family.html', '_blank');
+
+})
+foodLink.addEventListener('click', function(){
+    window.open('food.html', '_blank');
+
+})
+animalLink.addEventListener('click', function(){
+    window.open('animal.html', '_blank');
+
+})
+bodyLink.addEventListener('click', function(){
+    window.open('body.html', '_blank');
+
+})
+noLink.addEventListener('click', function(){
+    window.open('number.html');
+
+})
+
+ </script>
+</body>
+</html>

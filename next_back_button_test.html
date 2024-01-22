@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kid-Friendly Buttons</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    /* Container styles */
+    .buttons-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100px;
+      margin: 20px auto;
+    }
+
+    /* Common button styles */
+    button {
+      width: 100px;
+      height: 150px;
+      border: none;
+      border-radius: 10px;
+      font-size: 24px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    /* Back button styles */
+    .back-button {
+      background-color: #FFB6C1; /* Playful pink */
+      color: #FF1493; /* Lighter pink */
+    }
+
+    /* Next button styles */
+    .next-button {
+      background-color: #87CEEB; /* Playful sky blue */
+      color: #4682B4; /* Lighter blue */
+      animation: scale 1s infinite alternate; /* Scale animation */
+    }
+
+    /* Animation keyframes */
+    @keyframes scale {
+      0% {
+        transform: scale(1); /* Initial size */
+      }
+      100% {
+        transform: scale(1.2); /* Larger size */
+      }
+    }
+
+    /* Icon styles */
+    i {
+      font-size: 40px; /* Larger icon size */
+    }
+  </style>
+</head>
+<body>
+
+  <div class="buttons-container">
+    <button class="back-button"><i class="fas fa-arrow-left"></i></button>
+    <button class="next-button"><i class="fas fa-arrow-right"></i></button>
+  </div>
+
+</body>
+</html>

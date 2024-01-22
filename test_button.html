@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kid's Buttons</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome CDN -->
+
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f4f4f4;
+    }
+
+    .btn {
+      position: relative;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      font-size: 36px;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+    }
+
+    .exit {
+      background-color: #FF3366; /* Red */
+    }
+
+    .music {
+      background-color: #33CCFF; /* Blue */
+    }
+
+    .repeat {
+      background-color: #FFD700; /* Yellow */
+    }
+
+    .spark {
+      position: absolute;
+      font-size: 30px;
+      opacity: 1;
+      animation: sparkAnimation 1.5s ease-out;
+    }
+
+    @keyframes sparkAnimation {
+      0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+      10% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+        transform: translate(0, -50px) scale(1.2);
+      }
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.24);
+    }
+  </style>
+</head>
+<body>
+  <button class="btn exit"><i class="fas fa-times"></i></button>
+  <button class="btn music"><i class="fas fa-music"></i></button>
+  <button class="btn repeat"><i class="fas fa-redo"></i></button>
+
+  <script>
+    let musicPlaying = true;
+
+    const buttons = document.querySelectorAll('.btn');
+    buttons.forEach(button => {
+      button.addEventListener('click', (event) => {
+        if (event.target.closest('.music')) {
+          toggleMusicIcon(event.target.closest('.music'));
+          playSound();
+          createSpark(event.target.closest('.music'));
+        } else {
+          playSound();
+          createSpark(event.target.closest('.btn'));
+        }
+      });
+    });
+
+    function playSound() {
+      const audio = new Audio('sounds/button_click.wav');
+      audio.play();
+    }
+
+    function createSpark(element) {
+      const spark = document.createElement('span');
+      spark.classList.add('spark');
+      spark.innerHTML = '✨✨✨✨';
+      const rect = element.getBoundingClientRect();
+      const xPos = rect.left + rect.width / 2;
+      const yPos = rect.top + rect.height / 2;
+      spark.style.left = `${xPos}px`;
+      spark.style.top = `${yPos}px`;
+      document.body.appendChild(spark);
+      setTimeout(() => {
+        spark.remove();
+      }, 1500);
+    }
+
+    function toggleMusicIcon(element) {
+      if (musicPlaying) {
+        element.innerHTML = '<i class="fa-solid fa-music-slash"></i>';
+        musicPlaying = false;
+      } else {
+        element.innerHTML = '<i class="fas fa-music"></i>';
+        musicPlaying = true;
+      }
+    }
+  </script>
+</body>
+</html>

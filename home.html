@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>Home Page</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="">
+<link rel="icon" type="image/png" href="desktop_images/logo.png"/>
+
+<style>
+  body{
+    overflow-x: hidden;
+  }
+.parent {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+grid-template-rows: repeat(4, 1fr);
+grid-column-gap: 0px;
+grid-row-gap: 0px;
+width:100%;
+height:100vh;
+}
+.flag {grid-area: 1 / 1 / 2 / 3;}
+.div1 { grid-area: 1 / 1 / 2 / 2; }
+.div2 { grid-area: 1 / 2 / 2 / 3; }
+.div3 { grid-area: 2 / 1 / 3 / 3; } /*div3 is for background only*/
+.div4 { grid-area: 2 / 1 / 3 / 2; }
+.div5 { grid-area: 2 / 2 / 3 / 3; }
+.div6 { grid-area: 3 / 1 / 4 / 2; }
+.div7 { grid-area: 3 / 2 / 4 / 3; }
+.div8 { grid-area: 4 / 1 / 5 / 3; }
+
+.div4 .container { 
+display: grid;
+grid-template-columns: 1fr 1fr;
+grid-template-rows: 1fr 1fr;
+gap: 30px 30px; 
+grid-auto-flow: row;
+grid-template-areas:
+"Back1 Back2"
+"Back3 Back4";
+width: 100%;
+height: 100%;
+}
+
+.Back1 { 
+    grid-area: Back1; 
+    background: url(bg1.jpg) no-repeat center center;
+    background-size: 100% 100%;
+    border: 3px solid #fff;
+    border-radius: 12px 12px 120px 12px;
+}
+.Back2 {
+    grid-area: Back2; 
+    background: url(bg2.jpg) no-repeat center center;
+    background-size: 100% 100%;
+    border: 3px solid #fff;
+    border-radius: 12px 12px 12px 120px;
+}
+
+.Back3 {
+    grid-area: Back3; 
+    background: url(bg3.jpg) no-repeat center center;
+    background-size: 100% 100%;
+    border: 3px solid #fff;
+    border-radius: 12px 120px 12px 12px;
+}
+
+.Back4 {
+    grid-area: Back4;
+    background: url(bg4.jpg) no-repeat center center;
+    background-size: 100% 100%;
+    border: 3px solid #fff;
+    border-radius: 120px 12px 12px 12px;
+}
+
+.flag{
+    height:520px;
+    background: rgb(4,113,235);
+background: linear-gradient(97deg, rgba(4,113,235,1) 72%, rgba(85,245,203,1) 100%);
+}
+
+
+.div1{
+    color:white ;
+    margin: 12% 0 5% 10%;
+    font-size: 32px;
+    font-weight: bold;
+}
+.div6 div{
+  font-size: 32px;
+  font-weight: bold;
+  margin: 20% 0 10% 20%;
+
+}
+.div2{
+    position: relative;
+}
+.div2 img{
+    position: absolute;
+    top:60%;
+    left: 55%;
+    transform: translate(-50%,-50%);
+}
+.div4{
+    position: relative;
+    padding: 60px;
+}
+.div4 span img{
+    position: absolute;
+    border-radius: 50%;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.div3{
+    height:520px;
+    background-image: url("div2.jpg");
+    background-position: bottom ;
+    background-size: 100%;
+}
+.div5{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10%;
+}
+b{  padding-left: 3%;
+    color: white;
+    font-size: 32px;
+}
+.div5 a{
+    color:aqua;
+}
+.div6 a{
+  color: rgb(45, 0, 243);
+}
+.div5 a:hover{
+  color: rgb(0, 0, 0);
+}
+.div6 a:hover{
+  color: #FFF;
+}
+.div6,.div7{
+    height: 520px;
+    background: rgb(254,211,36);
+background: linear-gradient(180deg, rgba(254,211,36,1) 0%, rgba(255,239,0,1) 78%, rgba(251,175,24,1) 100%);
+}
+.div8{
+    height: 520px;
+    position: relative;
+}
+#pic img{
+    position: absolute;
+    top:50%;
+    left: 35%;
+    transform: translate(-50%,-50%);
+}
+.div8 .playground{
+    position: absolute;
+    bottom: 0;
+    left: 35%;
+    transform: translate(-50%);
+}
+.btn{
+    margin-top: 20px;
+        padding: 20px 50px;
+        font-size: 20px;
+        font-weight: bold;
+        border: 8px solid #fff; /* Frame border color */
+        border-radius: 20px;
+        background-color: #FF9800; /* Green color like a jungle */
+        color: #FFF;
+        text-transform: uppercase;
+        cursor: pointer;
+}
+
+.playground {
+      width: calc(30px * 18);
+      height: calc(30px * 9);
+      position: relative;
+      overflow: hidden;
+      z-index: -100;
+    }
+    .playground>div {
+      border-radius: 500px 500px 0 0;
+    }
+    #red {
+      background-color: red;
+      width: calc(30px * 18);
+      height: calc(30px * 9);
+      position: absolute;
+    }
+    #yellow {
+      background-color: rgb(255, 255, 255);
+      width: calc(30px * 14);
+      height: calc(30px * 7);
+      position: absolute;
+      left: calc(30px * 2);
+      top: calc(30px * 2);
+    }
+    #green {
+      background-color: rgb(255, 255, 255);
+      width: calc(30px * 12);
+      height: calc(30px * 6);
+      position: absolute;
+      left: calc(30px * 3);
+      top: calc(30px * 3);
+    }
+    #blue {
+      background-color: blue;
+      width: calc(30px * 10);
+      height: calc(30px * 5);
+      position: absolute;
+      left: calc(30px * 4);
+      top: calc(30px * 4);
+    }
+    #violet {
+      background-color: rgb(255, 255, 255);
+      width: calc(30px * 6);
+      height: calc(30px * 3);
+      position: absolute;
+      left: calc(30px * 6);
+      top: calc(30px * 6);
+    }
+    #middle {
+      width: calc(30px * 4);
+      height: calc(30px * 2);
+      position: absolute;
+      background-color: white;
+      left: calc(30px * 7);
+      top: calc(30px * 7);
+    }
+
+
+    .heart {
+      position: absolute;
+      width: 64px; /* Adjust the size of the hearts */
+      height: 64px;
+      background-image: url('heart.png'); /* Replace with your heart image */
+      background-size: cover;
+      animation: popUp 1s ease-in-out 0.5s forwards;
+    }
+
+    .text{
+      width:400px;
+      margin: 10% 10% 10% 0;
+      position: absolute;
+      font-size: 32px;
+      font-weight: bold;
+      right: 0;
+    }
+
+    @keyframes popUp {
+      0% {
+        transform: scale(0);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+@media only screen and (max-width: 768px) {
+.parent {
+    display: grid;
+grid-template-columns: 1fr;
+grid-template-rows: repeat(7, 1fr);
+grid-column-gap: 0px;
+grid-row-gap: 0px;
+width:100vh;
+height:100vh;
+}
+.flag {grid-area: 1 / 1 / 3 / 2;}
+.div1 { grid-area: 1 / 1 / 2 / 2; }
+.div2 { grid-area: 2 / 1 / 3 / 2; }
+.div3 { grid-area: 3 / 1 / 5 / 2; } /*div3 is for background only*/
+.div4 { grid-area: 3 / 1 / 4 / 2; }
+.div5 { grid-area: 4 / 1 / 5 / 2; }
+.div6 { grid-area: 5 / 1 / 6 / 2; }
+.div7 { grid-area: 6 / 1 / 7 / 2; }
+.div8 { grid-area: 7 / 1 / 8 / 2; }
+}
+</style>
+
+<body>
+
+
+
+<div class="parent">
+    <div class="flag"></div>
+    <div class="div1">မင်္ဂလာပါ, သားသားကတော့ကရင်လေးပါ။<br> သားသားအကြောင်းလေ့လာပြီးကရင်အသံထွက်လေးတွေအတူတူလေ့လာကြရအောင်နော်။  <br>သားသားကြိုက်တဲ့အရာလေးတွေကအထဲမှာမို့ စတင်မည် ခလုတ်လေးကိုနှိပ်လိုက်နော်<br><center><button class="btn">စတင်မည်</button></center></div>
+    <div class="div2"> <img src="logo.png" width="110%"height="80%"></div>
+    <div class="div3"> </div> <!-- div3 is for background only -->
+    <div class="div4"> 
+        <span><img src="redkid.jpg" width="120px"height="120px"></span>
+        <div class="container">
+            <div class="Back1"></div>
+            <div class="Back2"></div>
+            <div class="Back3"></div>
+            <div class="Back4"></div>
+        </div>
+    </div>
+    <div class="div5"> <b>ကရင်လေးကြိုက်တက်တဲ့အရာလေးတွေကိုလေ့လာပြီး လွယ်လွယ်ကူကူနဲ့ကရင်အသံထွက်လေးတွေကို စကောကရင်၊ ပိုးကရင်ဆိုပြီးရွေးချယ်<a href="karenlay.html">နားထောင်ကြမယ်။</a></b></div>
+    <div class="div6"><div> Quiz မေးခွန်းတွေဖြေပြီးလည်းလေ့လာလိုရတယ် ။<br> ကရင်အသံထွက်လေးတွေဘယ်လောက်သိထားလဲ <a href="quiz.html">ဆန်းစစ်ကြည့်တာပေါ့။</a></div> </div>
+    <div class="div7"> <img src="wth.png" style="padding-left: 10%;"></div>
+    <div class="div8">
+        <div id="pic">
+            <!-- The picture you want to trigger the animation -->
+            <img src="family.png" alt="Your Picture">
+            </div>
+        <div class="playground">
+            <div id="red"></div>
+
+            <div id="yellow"></div>
+            <div id="green"></div>
+            <div id="blue"></div>
+
+            <div id="violet"></div>
+            <div id="middle"></div>
+        </div>
+        <div class="text">
+          မိမိတို့တိုင်းရင်းသားဘာသာစကားကိုသုံးစွဲပြောဆိုပြီး ချစ်ခြင်းမေတ္တာဖြင့်ယဉ်ကျေးမှုတွေကိုထွေးပိုက်ကြမယ်နော်။
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+  $(document).ready(function () {
+    var container = $('.div8');
+    var pic = $('.div8');
+
+    $(window).scroll(function () {
+      var scrollBottom = $(window).scrollTop() + $(window).height();
+      var containerBottom = container.offset().top + container.height();
+
+      if (scrollBottom >= containerBottom) {
+        // Increase the number of hearts
+        for (var i = 0; i < 10; i++) {
+          // Create a heart element and append it to the container
+          var heart = $('<div class="heart"></div>');
+          container.append(heart);
+
+          // Set the position of the heart within the pic container
+          var xPos = Math.random() * (pic.width() - 64);
+          var yPos = Math.random() * (pic.height() - 64);
+          heart.css({ top: yPos, left: xPos });
+
+          // Remove the heart element after the animation completes
+          heart.on('animationend', function () {
+            $(this).remove();
+          });
+        }
+      }
+    });
+  });
+
+  const startBtn = document.querySelector('.btn');
+  startBtn.addEventListener('click', function(){
+    window.open('karenlay.html');
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karen Kiddo | Animal Pronounciation</title>
+<link rel="icon" type="image/png" href="desktop_images/logo.png"/>
+<style>
+     @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
+  body {
+    margin: 0;
+    padding: 0;
+    background-image: url('desktop_images/animal_background.png');
+    background-repeat: no-repeat;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+   
+  }
+  .container {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      pointer-events: none;
+      opacity: 0.3;
+  }
+  .nav {
+      width: 100%;
+      height: 5%;
+      padding: 20px;
+  }
+  .content{
+      position: relative;
+      width: 100%;
+      height: 95%;
+  }
+  .overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 2;
+    }
+    .food-guide {
+      position: absolute;
+      top: 10vh;
+      left: 0;
+      width: 100vh;
+      height: 100vh;
+    }
+    .point {
+      position: absolute;
+      top: 48vh;
+      left: 125vh;
+      width: 50vh;
+      height: 50vh;
+    }
+    .ok {
+      position: absolute;
+      top: 80vh;
+      left: 60vh;
+    }
+  .button-box {
+            top: -5vh;
+            left: 31vh;;
+            width: 33vh;
+            height: 6.5vh;
+            margin: 35px auto;
+            position: absolute;
+            border-radius: 10px;
+            background: #fff;
+            font-size: 20px;
+            font-weight: bold;
+            border: 8px solid #fff;
+            border-radius: 20px;
+            background-color: #fff;
+            color: #FFF;
+            text-transform: uppercase;
+            cursor: pointer;
+}
+
+.toggle-btn {
+	padding: 13px 25px;
+	cursor: pointer;
+	background: transparent;
+	border: 0;
+	outline: none;
+	position: relative;
+	text-align: center;
+}
+
+#btn {
+	left: 0;
+	top: 0;
+	position: absolute;
+	width: 17vh;
+	height: 100%;
+	background: #FF9800;
+	border-radius: 10px;
+	transition: .5s;
+}
+.pow {
+  color: #fff;
+}
+ 
+        .btn{
+            
+            padding: 15px 30px;
+  font-size: 20px;
+  font-weight: bold;
+  border: 8px solid #fff; /* Frame border color */
+            border-radius: 20px;
+ 
+  background-color: #FF9800; /* Green color like a jungle */
+  color: #FFF;
+  text-transform: uppercase;
+  cursor: pointer;
+ 
+        }
+        .btn:hover {
+          background-color: green;
+        }
+        
+        .left{
+            position: absolute;
+            width: 40%;
+            height: 100%;
+        }
+        .middle {
+            margin-left: 30%;
+            position: absolute;
+            width: 20%;
+            height: 100%;
+            
+        }
+        .text {
+          position: absolute;
+          top: 67vh;
+          left: 23vh;
+          width: 25vh;
+          height: 10vh;
+          font-size: 3rem;
+          background-color: #fff;
+          color: #FF9800;
+          padding: 20px 20px;
+          text-align: center;
+          border: 8px solid  #FF9800;
+        }
+        .right{
+           top: 0;
+           right: 0;
+            position: absolute;
+            width: 40%;
+            height: 100%;
+        }
+        .image-grid{
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            height: 100%;
+           
+        }
+        .image-grid img {
+      width: 200px;
+      height: 200px;
+     
+      margin-top: 0;
+    }
+    .image-wrap {
+        display: flex;
+        flex-direction: column;
+    }
+    .animated-image {
+  width: 100px;
+  height: auto; /* Auto height to maintain aspect ratio */
+  animation: imageAnimation 2s ease-in-out alternate infinite; /* Change duration and animation timing as needed */
+  opacity: 1;
+}
+.image-container {
+      position: relative;
+      width: 300px;
+      height: 300px;
+      margin-top: 50%;
+      margin-left: 20%;
+    }
+
+    .image-container img {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .basket {
+      /* Styles for the basket image */
+      z-index: 1;
+    }
+    .above-basket {
+      /* Styles for the image above the basket */
+      position: relative;
+      z-index: 2;
+      margin-top: -50px;
+      margin-left: 20%; /* Adjust this value to position it slightly above the basket
+      
+      margin top 
+      dog -80px
+      chicken - 60px
+      fish - -40px
+
+      
+       */
+    }
+@keyframes imageAnimation {
+  0% {
+    transform: scale(1); /* Initial scale */
+  }
+  100% {
+    transform: scale(1.3); /* Scaled up */
+  }
+}
+@keyframes moveDownAnimation {
+  from {
+    transform: translateY(-100vh);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+  /* Media Query for Responsive Background */
+  @media screen and (max-width: 768px) {
+    body {
+      background-size: auto;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="overlay">
+    <img class="food-guide" src="desktop_images/animal_guide.png">
+    <img class="point" src="desktop_images/point.png">
+    <span class="btn ok"><i class="fa-solid fa-thumbs-up"></i></span>
+ </div>
+  <div class="container">
+    <div class=nav>
+        <a href="karenlay.html"><span class="btn exit"><i class="fa-solid fa-chevron-left"></i></span></a>
+        <div class="button-box">
+          <div id="btn"></div>
+          <button type="button" class="toggle-btn pow" onclick="leftClick()">ပိုးကရင်</button>
+          <button type="button" class="toggle-btn sakaw" onclick="rightClick()">စကောကရင်</button>
+      </div>
+    </div>
+  
+  <div class="content">
+    <div class="left">
+        <div class="image-grid">
+            <div class="image-wrap">
+                <img class="animated-image" src="animals/chicken.png" onclick="showImage('chicken')" alt="Image 1">
+                <img class="animated-image" src="animals/dog.png" onclick="showImage('dog')" alt="Image 2">
+            </div>
+            <div class="image-wrap">
+                <img class="animated-image" src="animals/pig.png" onclick="showImage('pig')" alt="Image 3">
+                <img class="animated-image" src="animals/prown.png" onclick="showImage('prown')" alt="Image 4">
+            </div>
+        </div>
+    </div>
+    
+      <div class="middle">
+          <div class="image-container">
+            <img class="basket" src="animals/basket.png" alt="Basket Image" width="400px" height="400px">
+            <img class="above-basket" src="" width="300px" height="300px">
+          </div>
+          <div class="text">
+              
+          </div>
+        </div>
+  
+
+    <div class="right">
+        <div class="image-grid">
+            <div class="image-wrap">
+                <img class="animated-image" src="animals/bird.png" onclick="showImage('bird')" alt="Image 1">
+                <img class="animated-image" src="animals/cat.png" onclick="showImage('cat')" alt="Image 2">
+            </div>
+            <div class="image-wrap">
+                <img class="animated-image" src="animals/monkey.png" onclick="showImage('monkey')" alt="Image 3">
+                <img class="animated-image" src="animals/fish.png" onclick="showImage('fish')" alt="Image 4">
+            </div>
+        </div>
+    </div>
+ </div>
+  </div>
+  <script src="js/button_click.js"></script>
+  <script>
+    const aboveBasketImage = document.querySelector('.above-basket');
+    const imageContainer = document.querySelector('.image-container');
+    let Karen ='pow';
+
+      const Animals = {
+        dog: ['animals/dog.png', 'voice/sakaw/Animals/Dog.wav', 'voice/pow/Animals/Dog.wav', 'sounds/bark.mp3', 'ခွေး'],
+        cat: ['animals/cat.png', 'voice/sakaw/Animals/Cat.wav', 'voice/pow/Animals/Cat.wav', 'sounds/meow.mp3', 'ကြောင်'],
+        fish: ['animals/fish.png', 'voice/sakaw/Animals/Fish.wav', 'voice/pow/Animals/Fish.wav', 'sounds/fish.mp3', 'ငါး'],
+        chicken: ['animals/chicken.png', 'voice/sakaw/Animals/Chicken.wav','voice/pow/Animals/Chicken.wav', 'sounds/chicken.mp3', 'ကြက်'],
+        pig: ['animals/pig.png', 'voice/sakaw/Animals/Pig.wav', 'voice/pow/Animals/Pig.wav', '', 'ဝက်'],
+        bird: ['animals/bird.png', 'voice/sakaw/Animals/Bird.wav', 'voice/pow/Animals/Bird.wav', 'sounds/bird.mp3', 'ငှက်'],
+        prown: ['animals/prown.png', 'voice/sakaw/Animals/Prown.wav', 'voice/pow/Animals/Prown.wav', '',  'ပုစွန်'],
+        monkey: ['animals/monkey.png', 'voice/sakaw/Animals/Monkey.wav', 'voice/pow/Animals/Monkey.wav', '',  'မျောက်']
+  };
+  function moveButtonLeft(vhValue) {
+  btn.style.left = vhValue;
+}
+function leftClick() {
+    Karen = 'pow';
+    document.querySelector('.pow').style.color = 'white';
+    document.querySelector('.sakaw').style.color = 'black';
+    btn.style.left = '0'
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    btn.style.width = '9vh';
+    }
+  }
+  
+function rightClick() {
+    Karen = 'sakaw';
+    document.querySelector('.pow').style.color = 'black';
+    document.querySelector('.sakaw').style.color = 'white';
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        moveButtonLeft('9vh');
+        btn.style.width = '16vh';
+
+} else {
+     moveButtonLeft('15.5vh');
+}
+}
+    
+    function showImage(animalName){
+        console.log(Animals[animalName][0]);
+        aboveBasketImage.src = Animals[animalName][0];
+        document.querySelector('.text').textContent = Animals[animalName][4];
+        imageContainer.style.display = 'block';
+        if(Karen == 'sakaw'){
+        const AnimalName = new Audio(Animals[animalName][1]);
+        AnimalName.volume = 1;
+        AnimalName.play();
+        }
+        if(Karen == 'pow'){
+        const AnimalName = new Audio(Animals[animalName][2]);
+        AnimalName.volume = 1;
+        AnimalName.play();
+        }
+        const AnimalSound = new Audio(Animals[animalName][3]);
+        AnimalSound.volume = 0.3;
+        AnimalSound.play();
+        if(animalName == 'dog'){
+          aboveBasketImage.style.marginTop = '-80px';
+        }
+        aboveBasketImage.style.animation = 'moveDownAnimation 1s ease-in-out';
+        setTimeout(function() {
+          aboveBasketImage.style.animation = '';
+        }, 1000); // Animation duration in milliseconds (1000ms = 1 second)
+      }
+
+      const ok = document.querySelector('.ok');
+  const container1 = document.querySelector('.container');
+  const overlay1 = document.querySelector('.overlay');
+
+  ok.addEventListener('click', function(){
+    overlay1.style.display = 'none';
+    container1.style.opacity = 1;
+    container1.style.pointerEvents = 'auto';
+  })
+    
+  </script>
+</body>
+</html>

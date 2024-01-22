@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Karen Kiddo | Food Pronounciation</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="desktop_images/logo.png"/>
+
+  <style>
+      @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-image: url('desktop_images/food_background.png');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      overflow: hidden;
+      }
+
+    .container {
+      width:100%;
+      height:100%;
+      position: relative;
+      opacity: 0.5;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .btn{
+      padding: 15px 30px;
+      font-size: 20px;
+      font-weight: bold;
+      border: 8px solid #fff; /* Frame border color */
+      border-radius: 20px;
+      background-color: #FF9800; /* Green color like a jungle */
+      color: #FFF;
+      text-transform: uppercase;
+      cursor: pointer;
+ }
+ .btn:hvoer {
+   background-color: green;
+ }
+ .button-box {
+            top: -5vh;
+            left: 31vh;;
+            width: 33vh;
+            height: 7vh;
+            margin: 35px auto;
+            position: absolute;
+            border-radius: 10px;
+            background: #fff;
+            font-size: 20px;
+            font-weight: bold;
+            border: 8px solid #fff;
+            border-radius: 20px;
+            background-color: #fff;
+            color: #FFF;
+            text-transform: uppercase;
+            cursor: pointer;
+}
+
+.toggle-btn {
+	padding: 10px 25px;
+	cursor: pointer;
+	background: transparent;
+	border: 0;
+	outline: none;
+	position: relative;
+	text-align: center;
+}
+
+#btn {
+	left: 0;
+	top: 0;
+	position: absolute;
+	width: 17vh;
+	height: 100%;
+	background: #FF9800;
+	border-radius: 10px;
+	transition: .5s;
+}
+.pow {
+  color: #fff;
+}
+        
+
+        .nav {
+            width: 100%;
+            height: 5%;
+            padding: 20px;
+}
+
+   .content {
+     position: absolute;
+     height: 95%;
+     width: 100%;
+   }
+   .bottom {
+     position: absolute;
+    left: 10vh;
+    top: 55vh;
+    height: 30%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+  
+   }
+    .image-grid {
+      position: absolute;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      grid-gap: 10px;
+      top: -10vh;
+      left: 70vh;
+      align-items: center;
+      justify-content: center; /* Adjust margin as needed */
+    }
+    .image-grid img {
+      width: 150px;
+      height: 150px;
+      cursor: pointer;
+    }
+    
+    
+    .overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 2;
+    }
+    .food-guide {
+      position: absolute;
+      left: 0;
+      width: 125vh;
+      height: 100vh;
+    }
+    .point {
+      position: absolute;
+      top: 50vh;
+      left: 140vh;
+    }
+    .ok {
+      position: absolute;
+      top: 76vh;
+      left: 70vh;
+    }
+    .animated-image {
+      width: 50vh; /* Initial width */
+      height: auto; /* Auto height to maintain aspect ratio */
+      animation: imageAnimation 2s ease-in-out alternate infinite; /* Change duration and animation timing as needed */
+      opacity: 1;
+}
+
+@keyframes imageAnimation {
+  0% {
+    transform: scale(1); /* Initial scale */
+  }
+  100% {
+    transform: scale(1.5); /* Scaled up */
+  }
+}
+/* Define the animation */
+@keyframes scaleAnimation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Define the initial position of the image */
+.image-container {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  margin-top: 20px; /* Adjust as needed */
+  display: none; /* Initially hide the image */
+}
+
+/* Define the animation for the image */
+@keyframes moveDownAnimation {
+  from {
+    transform: translateY(-100vh);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+.display-large-image {
+  position: absolute;
+  left: 100vh;
+  top: 6vh;
+}
+.display-large-image img {
+  width: 28h;
+  height: 28vh;
+}
+#text {
+  position: absolute;
+  left: 10vh;
+  top: 10vh;
+  font: 1.5rem sans-serif;
+  color: green;
+}
+.plate {
+  position: absolute;
+  width: 50vh;
+  height: 50vh;
+  left: -7vh;
+  top: -10vh;
+  padding: 0;
+  
+}
+.sound-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.7);
+            display: inline-block;
+  font-size: 20px;
+  font-weight: bold;
+  border: 2px solid #fff; /* Frame border color */
+            border-radius: 10px;
+            background-color: #FF9800;
+            width: 5vh;
+            height: 5vh;
+            padding: 5px;
+            color: #fff;
+        }
+
+@media only screen and (max-width: 767px) {
+  body {
+    background-image: url('mobile_images/food_background.png');
+    background-size: 68.5vh;
+    width: 100%;
+    background-repeat: no-repeat;
+  }
+  .image-grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1vh;
+  }
+ .display-large-image {
+   left: 15vh;
+   top: 30vh;
+ }
+ .display-large-image img {
+   width: 15vh;
+   height: 15vh;
+ }
+ .image-grid {
+   left: 7vh;
+   top: 0vh;
+   width: 50vh;
+   height: 10vh;
+ }
+ .image-grid img {
+   width: 13vh;
+   height: 13vh;
+ }
+ .content {
+   height: 10vh;
+ }
+ .plate {
+   top: 20vh;
+   left: -15vh;
+   width: 30vh;
+   height: 30vh;
+ }
+ #text {
+   left: -7vh;
+   top: 32vh;
+ }
+ .button-box {
+   width: 25vh;
+   left: 32vh;
+ }
+ #btn {
+   width: 9vh;
+ }
+ .toggle-btn {
+   padding: 10px 2px;
+ }
+ button {
+   font-size: 20px;
+ }
+ .food-guide {
+   position: absolute;
+   top: 10vh;
+   left: -5vh;
+   width: 70vh;
+   height: 55vh;
+ }
+ .point {
+   width: 25vh;
+   left: 5vh;
+   top: 80vh;
+ }
+ .ok {
+   top: 100vh;
+   left: 40vh;
+ }
+  
+}
+
+
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <img class="food-guide" src="desktop_images/food_guide.png">
+    <img class="point animated-image" src="desktop_images/point.png">
+    <span class="btn ok"><i class="fa-solid fa-thumbs-up"></i></span>
+ </div>
+  <div class="container">
+  
+ <div class="nav">
+  <a href="karenlay.html"><span class="btn exit"><i class="fa-solid fa-chevron-left"></i></span></a>
+  <div class="button-box">
+    <div id="btn"></div>
+    <button type="button" class="toggle-btn pow" onclick="leftClick()">ပိုးကရင်</button>
+    <button type="button" class="toggle-btn sakaw" onclick="rightClick()">စကောကရင်</button>
+</div>
+</div>
+  <div class="content">
+    
+    <div class="image-grid">
+      <!-- Placeholder shapes for images -->
+      <!-- Row 1 -->
+      
+      <img src="food_png/rm6.png" alt="Image 1">      
+      <img src="food_png/rm9.png" alt="Image 2">
+      <img src="food_png/rm3.png" alt="Image 3">
+      <img src="food_png/rm18.png" alt="Image 4">
+      <img src="food_png/rm11.png" alt="Image 5">
+      <img src="food_png/rm12.png" alt="Image 6">
+
+      <img src="food_png/rm5.png" alt="Image 7">
+      <img src="food_png/rm14.png" alt="Image 8">
+      <img src="food_png/rm17.png" alt="Image 9">
+      <img id="f13" src="food_png/rm13.png" alt="Image 10">
+      <img src="food_png/rm16.png" alt="Image 11">
+      <img src="food_png/rm15.png" alt="Image 12">
+      <!-- Row 3 -->
+     <img src="food_png/rm2.png" alt="Image 13">
+      <img src="food_png/rm7.png" alt="Image 14">
+      <img src="food_png/rm4.png" alt="Image 15">
+      <img src="food_png/rm8.png" alt="Image 16">
+      <img src="food_png/rm10.png" alt="Image 17">
+      <img src="food_png/rm1.png" alt="Image 18">
+
+     
+    </div>
+  
+  <div class="bottom">
+    
+    <img class="plate" src="food_png/plate.png" alt="Plate">
+    <span id="text"></span>
+    
+    <div class="display-large-image">
+      <img class="large-image" src="">
+    </div>
+  </div>
+  </div>
+</div>
+  <script src="js/button_click.js"></script>
+  <script>
+    const images = document.querySelectorAll(".image-grid img");
+    let Karen = 'pow';
+    var btn = document.getElementById('btn');
+
+function moveButtonLeft(vhValue) {
+  btn.style.left = vhValue;
+}
+function leftClick() {
+    Karen = 'pow';
+    document.querySelector('.pow').style.color = 'white';
+    document.querySelector('.sakaw').style.color = 'black';
+    btn.style.left = '0'
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    btn.style.width = '9vh';
+    }
+  }
+
+function rightClick() {
+    Karen = 'sakaw';
+    document.querySelector('.pow').style.color = 'black';
+    document.querySelector('.sakaw').style.color = 'white';
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        moveButtonLeft('9vh');
+        btn.style.width = '16vh';
+
+} else {
+     moveButtonLeft('15.5vh');
+}
+}
+   document.addEventListener("DOMContentLoaded", function() {
+  
+  images.forEach(function(image) {
+    image.addEventListener("click", function() {
+      image.style.animation = "scaleAnimation 1s ease-in-out";
+      
+      // Reset animation after 1 second
+      setTimeout(function() {
+        image.style.animation = "";
+      }, 1000);
+    });
+  });
+});
+
+// document.addEventListener("DOMContentLoaded", function() {
+//   const moveButton = document.getElementById('f13');
+//   const imageContainer = document.querySelector('.image-container');
+
+//   moveButton.addEventListener('click', function() {
+//     imageContainer.style.display = 'block'; // Show the image container
+    
+//     // Apply the animation to move the image down
+//     imageContainer.style.animation = 'moveDownAnimation 1s ease-in-out';
+
+//     // Reset the animation after it completes
+//     setTimeout(function() {
+//       imageContainer.style.animation = '';
+//     }, 1000); // Animation duration in milliseconds (1000ms = 1 second)
+//   });
+// });
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  //const thumbnails = document.querySelectorAll('.image-grid img');
+  const largeImage = document.querySelector('.large-image');
+  const displayLargeImage = document.querySelector('.display-large-image');
+  const ContentClickSound = 'sounds/content_click.wav';
+
+  const imageMap = {
+    '/rm1.png': ['food_png/f1.png', 'ခရမ်းသီး', 'voice/sakaw/Foods/EggPlant.wav', 'voice/pow/Foods/EggPlant.wav'],
+    '/rm2.png': ['food_png/f2.png','မာလကာသီး' ,'voice/sakaw/Foods/MarLarKar.wav', 'voice/pow/Foods/MarLarKar.wav'],
+    '/rm3.png': ['food_png/f3.png', 'စပျစ်သီး' ,'voice/sakaw/Foods/Grape.wav', 'voice/pow/Foods/Grape.wav'],
+    '/rm4.png': ['food_png/f4.png', 'ပန်းသီး', 'voice/sakaw/Foods/Apple.wav', 'voice/pow/Foods/Apple.wav'],
+    '/rm5.png': ['food_png/f5.png', 'လိမ္မော်သီး','voice/sakaw/Foods/Orange.wav', 'voice/pow/Foods/Orange.wav'],
+    '/rm6.png': ['food_png/f6.png', 'နာနတ်သီး', 'voice/sakaw/Foods/PileApple.wav', 'voice/pow/Foods/PileApple.wav'],
+    '/rm7.png': ['food_png/f7.png', 'သရက်သီး', 'voice/sakaw/Foods/Mango.wav', 'voice/pow/Foods/Mango.wav'],
+    '/rm8.png': ['food_png/f8.png', 'ငှက်ပျော်သီး', 'voice/sakaw/Foods/Banana.wav', 'voice/pow/Foods/Banana.wav'],
+    '/rm9.png': ['food_png/f9.png', 'မန်ကျီးသီး', 'voice/sakaw/Foods/ManKyiThi.wav', 'voice/pow/Foods/ManKyiThi.wav'],
+    '/rm10.png': ['food_png/f10.png', 'ခရမ်းချဉ်သီး', 'voice/sakaw/Foods/Tomato.wav', 'voice/pow/Foods/Tomato.wav'],
+    '/rm11.png': ['food_png/f11.png', 'သခွားသီး', 'voice/sakaw/Foods/Cucumber.wav', 'voice/pow/Foods/Cucumber.wav'],
+    '/rm12.png': ['food_png/f12.png', 'အာလူး'],
+    '/rm13.png': ['food_png/f13.png', 'ကြက်သား', 'voice/sakaw/Foods/ChickenCurry.wav', 'voice/pow/Foods/ChickenCurry.wav'],
+    '/rm14.png': ['food_png/f14.png', 'ဝက်သား', 'voice/sakaw/Foods/Pork.wav', 'voice/pow/Foods/Pork.wav'],
+    '/rm15.png': ['food_png/f15.png','အမဲသား', 'voice/sakaw/Foods/Beef.wav', 'voice/pow/Foods/Beef.wav'],
+    '/rm16.png': ['food_png/f16.png', 'ငါး', 'voice/sakaw/Foods/FishCurry.wav', 'voice/pow/Foods/FishCurry.wav'],
+    '/rm17.png': ['food_png/f17.png', 'ထမင်း', 'voice/sakaw/Foods/Rice.wav', 'voice/pow/Foods/Rice.wav'],
+    '/rm18.png': ['food_png/f18.png', 'ဖရဲသီး', 'voice/sakaw/Foods/Watermelon.wav', 'voice/pow/Foods/Watermelon.wav'],
+    // Add more mappings for all thumbnails and their associated larger images
+  };
+
+
+  images.forEach(function(thumbnail) {
+    thumbnail.addEventListener('click', function() {
+      const thumbnailSrc = thumbnail.src;
+      const filename = thumbnailSrc.substring(thumbnailSrc.lastIndexOf('/'));
+      const largeImagePath = imageMap[filename][0];
+      const textEl = document.getElementById("text");
+      if (largeImagePath) {
+        // Set the src attribute of the large image and show it
+        largeImage.src = largeImagePath;
+        displayLargeImage.style.display = 'block';
+        
+        const ContentSound = new Audio(ContentClickSound);
+        ContentSound  .play();
+        if(Karen == 'sakaw'){
+        const FoodVoice = new Audio(imageMap[filename][2]);
+        FoodVoice.play();
+        }
+        if(Karen == 'pow'){
+          const FoodVoice = new Audio(imageMap[filename][3]);
+        FoodVoice.play();
+        }
+        textEl.innerHTML = imageMap[filename][1];
+        // Apply the animation to move the large image down
+        displayLargeImage.style.animation = 'moveDownAnimation 1s ease-in-out';
+
+        // Reset the animation after it completes
+        setTimeout(function() {
+          displayLargeImage.style.animation = '';
+        }, 1000); // Animation duration in milliseconds (1000ms = 1 second)
+      }
+      else
+        console.log(largeImagePath);
+    });
+  });
+});
+
+  const ok = document.querySelector('.ok');
+  const container1 = document.querySelector('.container');
+  const overlay1 = document.querySelector('.overlay');
+
+  ok.addEventListener('click', function(){
+    overlay1.style.display = 'none';
+    container1.style.opacity = 1;
+    container1.style.pointerEvents = 'auto';
+  })
+
+
+  </script>
+</body>
+</html>

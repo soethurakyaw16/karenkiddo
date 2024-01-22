@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Karen Kiddo | Family Pronounciation</title>
+    <link rel="icon" type="image/png" href="desktop_images/logo.png"/>
+   <style>
+        @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('desktop_images/Livingroom_background.png');
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .nav {      
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 20px;
+            opacity: 0.3;
+        }
+        .button-box {
+            top: -5vh;
+            left: 31vh;;
+            width: 32vh;
+            height: 7vh;
+            margin: 35px auto;
+            position: absolute;
+            border-radius: 10px;
+            background: #fff;
+            font-size: 20px;
+            font-weight: bold;
+            border: 8px solid #fff;
+            border-radius: 20px;
+            background-color: #fff;
+            color: #FFF;
+            text-transform: uppercase;
+            cursor: pointer;
+}
+
+        .toggle-btn {
+            padding: 15px 25px;
+            cursor: pointer;
+            background: transparent;
+            border: 0;
+            outline: none;
+            position: relative;
+            text-align: center;
+        }
+
+        #btn {
+            left: 0;
+            top: 0;
+            position: absolute;
+            width: 17vh;
+            height: 100%;
+            background: #FF9800;
+            border-radius: 10px;
+            transition: .5s;
+        }
+        .pow {
+            color: #fff;
+        }
+        .btn{
+            padding: 15px 30px;
+            font-size: 20px;
+            font-weight: bold;
+            border: 8px solid #fff; /* Frame border color */
+            border-radius: 20px;
+            background-color: #FF9800; /* Green color like a jungle */
+            color: #FFF;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: green;
+        }
+        i {
+            font-size: 20px;
+            color: white;
+            text-align: center;
+        }
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            margin-top: 6%;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+        .overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 2;
+    }
+    .food-guide {
+        position: absolute;
+      left: 0;
+      top: 15vh;
+      width: 100vh;
+      height: 90vh;
+    }
+    .point {
+      position: absolute;
+      top: 60vh;
+      left: 150vh;
+    }
+    .ok {
+      position: absolute;
+      left: 55vh;
+      top: 83vh;
+      
+    }
+       
+        .photo-frame {
+            width: 200px; /* Adjust the width of the photo frame */
+            height: 200px; /* Adjust the height of the photo frame */
+            overflow: hidden;
+            border: 8px solid #fff; /* Frame border color */
+            border-radius: 20px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+            background-color: #E1BEE7;
+        }
+
+        .overlay-box {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup {
+        background-color: #CDDC39;
+        padding: 20px;
+        border: 8px solid #fff; /* Frame border color */
+        border-radius: 20px;
+        text-align: center;
+        position: relative;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Shadow effect for content */
+        position: relative;
+    }
+
+    .popup::before,
+    .popup::after {
+        content: '';
+        position: absolute;
+        top: -4px;
+        bottom: -4px;
+        left: -4px;
+        right: -4px;
+        border-radius: 15px;
+        box-shadow: 0 0 0 2px #f5f5dc, 0 0 0 4px #f5f5dc; /* Double border */
+        z-index: -1;
+    }
+
+    .close {
+        position: absolute;
+        top: -15px; /* Adjust the position */
+        right: -15px; /* Adjust the position */
+        font-size: 50px;
+        cursor: pointer;
+        border: 8px solid #fff; /* Frame border color */
+        border-radius: 20px;
+        background-color: #FF5252;
+        width: 50px;
+        height: 50px; /* Creamy white background */
+       /* Circular shape */
+        
+        color: #fff; /* Text color */
+    }
+
+        .popup img {
+            max-width: 150px;
+            border-radius: 5px;
+        }
+
+        
+
+        .member-name {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-top: 10px;
+            color: #fff;
+        }
+
+        
+
+
+        .photo-frame img {
+            width: 100%; /* Ensure the image fills the frame */
+            height: 100%; /* Ensure the image fills the frame */
+            object-fit: cover;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .photo-frame:hover img {
+            transform: scale(1.1);
+        }
+        .animated-image {
+      width: 50vh; /* Initial width */
+      height: auto; /* Auto height to maintain aspect ratio */
+      animation: imageAnimation 2s ease-in-out alternate infinite; /* Change duration and animation timing as needed */
+      opacity: 1;
+}
+
+@keyframes imageAnimation {
+  0% {
+    transform: scale(1); /* Initial scale */
+  }
+  100% {
+    transform: scale(1.5); /* Scaled up */
+  }
+}
+        @media (max-width: 768px) {
+            body {
+                background-image: url('mobile_images/family_background.png');
+                background-size: 100vh;
+                background-repeat: initial;
+            }
+            .content {
+                position: absolute;
+                top: 5vh;
+            }
+            .btn {
+                position: absolute;
+                padding-left: 25px;
+            }
+            .exit {
+                position: absolute;
+                top: 0;
+                left: 1vh;
+                width: 3vh;
+                height: 3vh;
+            }
+            .music {
+                position: absolute;
+                left: 15vh;
+                top: 0;
+                width: 3vh;
+                height: 3vh;
+
+            }
+            .button-box {
+                left: 29vh;
+                width: 20vh;
+            }
+            #btn {
+    width: 8vh;
+  }
+ .toggle-btn {
+   padding: 14px 2px;
+ }
+ .pow {
+     padding-left: 2;
+ }
+ 
+      button {
+        font-size: 18px;
+      }
+      .food-guide {
+   position: absolute;
+   top: 0vh;
+   left: -10vh;
+   width: 70vh;
+   height: 50vh;
+ }
+ .point {
+    width: 25vh;
+   left: 20vh;
+   top: 50vh;
+ }
+ .ok {
+   top: 85vh;
+   left: 35vh;
+ }
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay">
+        <img class="food-guide" src="desktop_images/family_guide.png">
+        <img class="point animated-image" src="desktop_images/point.png">
+        <span class="btn ok"><i class="fa-solid fa-thumbs-up"></i></span>
+     </div>
+    <div class=nav>
+        <a href="karenlay.html"><span class="btn exit"><i class="fa-solid fa-chevron-left"></i></span></a>
+       <div class="button-box">
+        <div id="btn"></div>
+        <button type="button" class="toggle-btn pow" onclick="leftClick()">ပိုးကရင်</button>
+        <button type="button" class="toggle-btn sakaw" onclick="rightClick()">စကောကရင်</button>
+    </div>
+    </div>
+  
+    <div class="content">
+      
+        <div class="photo-frame" data-member="grandfather">
+            <img src="family_png/grandfather.png">
+        </div>
+        <div class="photo-frame" data-member="grandmother">
+            <img src="family_png/grandmother.png">
+        </div>
+        <div class="photo-frame"  data-member="father">
+            <img src="family_png/father.png">
+        </div>
+        <div class="photo-frame" data-member="mother">
+            <img src="family_png/mother.png">
+        </div>
+        <div class="photo-frame" data-member="uncle">
+            <img src="family_png/uncle.png">
+        </div>
+        <div class="photo-frame" data-member="aunty">
+            <img src="family_png/aunty.png">
+        </div>
+        <div class="photo-frame" data-member="brother">
+            <img src="family_png/brother.png">
+        </div>
+        <div class="photo-frame" data-member="sister">
+            <img src="family_png/sister.png">
+        </div>
+        <div class="photo-frame" data-member="nyilay">
+            <img src="family_png/nyilay.png">
+        </div>
+        <div class="photo-frame" data-member="nyimalay">
+            <img src="family_png/nyimalay.png">
+        </div>
+        <!-- Add other family members similarly -->
+    </div>
+    <div class="overlay-box">
+        <div class="popup">
+            <span class="close">&times;</span>
+            <img class="popup-img" src="" alt="">
+            <p class="member-name"></p>
+        </div>
+    </div>
+    <script src="js/button_click.js"></script>
+
+    <script>
+        let Karen = 'pow';
+       const familyDetails = {
+    grandfather: {
+        name: 'ဘိုးဘိုး',
+        image: 'family_png/grandfather.png',
+        sakaw: 'voice/sakaw/Family/GrandFather.wav',
+        pow: 'voice/pow/Family/GrandFather.wav',
+    },
+    grandmother: {
+        name: 'ဘွားဘွား',
+        image: 'family_png/grandmother.png',
+        sakaw: 'voice/sakaw/Family/GrandMother.wav',
+        pow: 'voice/pow/Family/GrandMother.wav'
+    },
+    father: {
+        name: 'ဖေဖေ',
+        image: 'family_png/father.png',
+        sakaw: 'voice/sakaw/Family/Father.wav',
+        pow: 'voice/pow/Family/Father.wav',
+    },
+    mother: {
+        name: 'မေမေ',
+        image: 'family_png/mother.png',
+        sakaw: 'voice/sakaw/Family/Mother.wav',
+        pow: 'voice/pow/Family/Mother.wav',
+    },
+    uncle: {
+        name: 'ဦးဦး',
+        image: 'family_png/uncle.png',
+        sakaw: 'voice/sakaw/Family/Uncle.wav',
+        pow: 'voice/pow/Family/Uncle.wav',
+    },
+    aunty: {
+        name: 'ဒေါ်ဒေါ်',
+        image: 'family_png/aunty.png',
+        sakaw: 'voice/sakaw/Family/Aunty.wav',
+        pow: 'voice/pow/Family/Aunty.wav',
+    },
+    brother: {
+        name: 'ကိုကို',
+        image: 'family_png/brother.png',
+        sakaw: 'voice/sakaw/Family/ElderBrother.wav',
+        pow: 'voice/pow/Family/ElderBrother.wav',
+    },
+    sister: {
+        name: 'မမ',
+        image: 'family_png/Sister.png',
+        sakaw: 'voice/sakaw/Family/ElderSister.wav',
+        pow: 'voice/pow/Family/ElderSister.wav',
+    },
+    nyilay: {
+        name: 'ညီလေး',
+        image: 'family_png/nyilay.png',
+        sakaw: 'voice/sakaw/Family/YoungerBrother.wav',
+        pow: 'voice/pow/Family/YoungerBrother.wav',
+    },
+    nyimalay: {
+        name: 'ညီမလေး',
+        image: 'family_png/nyimalay.png',
+        sakaw: 'voice/sakaw/Family/YoungerSister.wav',
+        pow: 'voice/pow/Family/YoungerSister.wav',
+    },
+    
+};
+var btn = document.getElementById('btn');
+
+
+function moveButtonLeft(vhValue) {
+  btn.style.left = vhValue;
+}
+function leftClick() {
+    Karen = 'pow';
+    document.querySelector('.pow').style.color = 'white';
+    document.querySelector('.sakaw').style.color = 'black';
+    btn.style.left = '0'
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    btn.style.width = '8vh';
+    }
+}
+
+function rightClick() {
+    Karen = 'sakaw';
+    document.querySelector('.pow').style.color = 'black';
+    document.querySelector('.sakaw').style.color = 'white';
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        moveButtonLeft('8vh');
+        btn.style.width = '12vh';
+
+} else {
+     moveButtonLeft('15vh');
+}
+}
+        
+
+document.querySelectorAll('.photo-frame').forEach(frame => {
+    frame.addEventListener('click', function() {
+        const overlayBox = document.querySelector('.overlay-box');
+        const member = this.getAttribute('data-member');
+        const memberDetails = familyDetails[member];
+        const popupImg = document.querySelector('.popup-img');
+        const memberName = document.querySelector('.member-name');
+       console.log(memberDetails);
+
+        popupImg.setAttribute('src', memberDetails.image);
+        memberName.textContent = memberDetails.name;
+        popupImg.style.display = 'block';
+        
+        overlayBox.style.display = 'flex';
+       
+        if(Karen =='sakaw'){
+            const audio = new Audio(memberDetails.sakaw);
+            audio.play();
+        }
+        if(Karen == 'pow'){
+            const audio = new Audio(memberDetails.pow);
+            audio.play();
+        }
+
+        
+});
+});
+
+document.querySelector('.close').addEventListener('click', function() {
+    document.querySelector('.overlay-box').style.display = 'none';
+});
+
+const ok = document.querySelector('.ok');
+  const content1 = document.querySelector('.content');
+  const overlay1 = document.querySelector('.overlay');
+  const nav1 = document.querySelector('.nav');
+
+  ok.addEventListener('click', function(){
+    overlay1.style.display = 'none';
+    content1.style.opacity = 1;
+    content1.style.pointerEvents = 'auto';
+    nav1.style.opacity= 1;
+  })
+
+    </script>
+
+    <script>
+        // Your existing JavaScript code...
+    </script>
+</body>
+</html>

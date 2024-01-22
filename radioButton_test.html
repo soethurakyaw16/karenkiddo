@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Switch with Radio Buttons</title>
+  <style>
+      body {
+	background: #000;
+}
+
+.button-box {
+	width: 220px;
+	margin: 35px auto;
+	position: relative;
+	border-radius: 10px;
+	background: #fff;
+    padding: 15px 30px;
+            font-size: 20px;
+            font-weight: bold;
+            border: 8px solid #fff;
+            border-radius: 20px;
+            background-color: #fff;
+            color: #FFF;
+            text-transform: uppercase;
+            cursor: pointer;
+}
+
+.toggle-btn {
+	padding: 10px 25px;
+	cursor: pointer;
+	background: transparent;
+	border: 0;
+	outline: none;
+	position: relative;
+	text-align: center;
+}
+
+#btn {
+	left: 0;
+	top: 0;
+	position: absolute;
+	width: 150px;
+	height: 100%;
+	background: #e67e22;
+	border-radius: 10px;
+	transition: .5s;
+}
+
+  </style>
+</head>
+
+        <div class="form-box">
+            <div class="button-box">
+                <div id="btn"></div>
+                <button type="button" class="toggle-btn" onclick="leftClick()">ပိုးကရင်</button>
+                <button type="button" class="toggle-btn" onclick="rightClick()">စကေားကရင်</button>
+            </div>
+        </div>
+        <script>
+            var btn = document.getElementById('btn')
+
+function leftClick() {
+    btn.style.left = '0'
+    btn.style.color = 'white';
+}
+
+function rightClick() {
+    btn.style.left = '130px'
+    btn.style.color = 'white';
+}
+
+        </script>
+    </body>
+    </html>
+    
+
+</body>
+</html>

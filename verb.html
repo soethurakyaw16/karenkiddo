@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kids Tooth Brushing</title>
+    <style>
+        #tooth {
+            width: 100px;
+            height: 150px;
+            background-color: #f0f0f0;
+            border: 2px solid #000;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            background-color: white;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div id="tooth"></div>
+    <script>
+        var tooth = document.getElementById('tooth');
+        
+        tooth.addEventListener('click', function(event) {
+            var x = event.clientX;
+            var y = event.clientY;
+
+            var numBubbles = getRandomNumber(3, 4); // Generate 3 or 4 bubbles on click
+            for (var i = 0; i < numBubbles; i++) {
+                createBubble(x, y);
+            }
+        });
+
+        function createBubble(x, y) {
+            var bubble = document.createElement('div');
+            bubble.className = 'bubble';
+            bubble.style.top = y - 25 + 'px';
+            bubble.style.left = x - 25 + 'px';
+            bubble.style.width = getRandomNumber(20, 60) + 'px';
+            bubble.style.height = bubble.style.width;
+            bubble.style.animationDuration = getRandomNumber(5, 10) + 's';
+            document.body.appendChild(bubble);
+
+            setTimeout(function() {
+                bubble.style.display = 'block';
+                bubble.style.opacity = 1;
+            }, 50);
+
+            setTimeout(function() {
+                bubble.style.opacity = 0;
+                setTimeout(function() {
+                    document.body.removeChild(bubble);
+                }, 500);
+            }, 1000);
+        }
+
+        function getRandomNumber(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+    </script>
+</body>
+</html>
