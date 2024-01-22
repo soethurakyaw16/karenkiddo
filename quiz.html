@@ -990,7 +990,7 @@
         // Check Image 
         function checKImage(e){
           const imageUrl = new URL(e.target.src);
-          const clickImageSrc = imageUrl.pathname;
+          let clickImageSrc = imageUrl.pathname;
           clickImageSrc = clickImageSrc.replace("/karenkiddo/", "/");
 
 
