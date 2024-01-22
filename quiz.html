@@ -991,6 +991,8 @@
         function checKImage(e){
           const imageUrl = new URL(e.target.src);
           const clickImageSrc = imageUrl.pathname;
+          clickImageSrc = clickImageSrc.replace("/karenkiddo/", "/");
+
 
           if(clickImageSrc == Quiz[selectedQuiz].Correct){
             const correctAudio = new Audio('sounds/correct.mp3');
