@@ -622,8 +622,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function showPart(part){
     const parts = document.querySelectorAll('.part');
+    const pics = document.querySelectorAll('.pic');
+
     parts.forEach(item => {
         item.classList.remove('highlight-part');
+    });
+    pics.forEach(item => {
+        item.classList.remove('animated-image');
     });
 
     if(part == 'hand' || part == 'eye' || part == 'ear' || part == 'leg'){
