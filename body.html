@@ -660,11 +660,15 @@ const ok = document.querySelector('.ok');
   const container1 = document.querySelector('.container');
   const overlay1 = document.querySelector('.overlay');
 
-  ok.addEventListener('click', function(){
+  ok.addEventListener('click', hideOverlay);
+  document.addEventListener('click', hideOverlay);
+
+  // User click anywhere on document, display none to guide
+  function hideOverlay(){
     overlay1.style.display = 'none';
     container1.style.opacity = 1;
     container1.style.pointerEvents = 'auto';
-  })
+  }
 </script>
 </body>
 
