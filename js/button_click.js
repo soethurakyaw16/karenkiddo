@@ -4,6 +4,10 @@ let musicPlaying = true;
     const easy = document.querySelector('.easy');
     const hard = document.querySelector('.hard');
 
+    function playSound() {
+      const audio = new Audio('sounds/button_click.wav');
+      audio.play();
+    }
     buttons.forEach(button => {
       button.addEventListener('click', (event) => {
         playSound();
@@ -11,10 +15,7 @@ let musicPlaying = true;
   });
   easy.addEventListener('click', playSound);
   hard.addEventListener('click', playSound)
-    function playSound() {
-      const audio = new Audio('sounds/button_click.wav');
-      audio.play();
-    }
+    
     const switchButtons = document.querySelectorAll('button');
     switchButtons.forEach(button => {
       button.addEventListener('click', (event) => {

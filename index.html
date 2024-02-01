@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+<hedad>
 <meta charset="UTF-8">
 <title>Karen Kiddo | A space for kids to learn Karen pronunciation</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="stylesheet" href="">
 <link rel="icon" type="image/png" href="desktop_images/logo.png"/>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 <style>
   body{
@@ -261,6 +263,10 @@ background: linear-gradient(180deg, rgba(254,211,36,1) 0%, rgba(255,239,0,1) 78%
       }
     }
 
+  .Back1:hover, .Back2:hover, .Back3:hover, .Back4:hover {
+    cursor: pointer;
+  }
+
 @media only screen and (max-width: 768px) {
 .parent {
     display: grid;
@@ -281,7 +287,63 @@ height:100vh;
 .div7 { grid-area: 6 / 1 / 7 / 2; }
 .div8 { grid-area: 7 / 1 / 8 / 2; }
 }
+
+@media (max-width: 768px) {
+  
+ .Back1, .Back2, .Back3, .Back4 {
+   width: 40vh;
+   height: 25vh;
+ }
+ .div6 {
+   font-size: 5rem;
+ }
+ .div3 {
+   margin-top: -32vh;
+   height: 150vh;
+ }
+ .div5 {
+   margin-top: -25vh;
+   padding-left: 6vh;
+ }
+ .div5 b {
+   font-size: 3rem;
+ }
+ .div6 {
+   margin-top: -15vh;
+ }
+ .div6 div {
+   margin-left: 2vh;
+   font-size: 3rem;
+ }
+ .flag {
+   height: 150vh;
+ }
+ .div1 {
+   font-size: 3rem;
+ }
+ .div1 .btn {
+   margin-top: 10vh;
+   width: 40vh;
+   height: 20vh;
+   font-size: 3rem;
+ }
+ .div2 {
+   margin-top: -33vh;
+ }
+ .div4 {
+   margin-top: -30vh;
+ }
+ .div8 .text {
+   position: absolute;
+   font-size: 3rem;
+   top: 70vh;
+   left: 5vh;
+ }
+ 
+
+}
 </style>
+</hedad>
 
 <body>
 
@@ -289,7 +351,7 @@ height:100vh;
 
 <div class="parent">
     <div class="flag"></div>
-    <div class="div1">မင်္ဂလာပါ, သားသားကတော့ကရင်လေးပါ။<br> သားသားအကြောင်းလေ့လာပြီးကရင်အသံထွက်လေးတွေအတူတူလေ့လာကြရအောင်နော်။  <br>သားသားကြိုက်တဲ့အရာလေးတွေကအထဲမှာမို့ စတင်မည် ခလုတ်လေးကိုနှိပ်လိုက်နော်<br><center><button class="btn">စတင်မည်</button></center></div>
+    <div class="div1">မင်္ဂလာပါ, သားသားကတော့ကရင်လေးပါ။<br> သားသားအကြောင်းလေ့လာပြီးကရင်အသံထွက်လေးတွေအတူတူလေ့လာကြရအောင်နော်။  <br>သားသားကြိုက်တဲ့အရာလေးတွေကအထဲမှာမို့ စတင်မည် ခလုတ်လေးကိုနှိပ်လိုက်နော်<br><center><button class="btn" id="btn">စတင်မည်</button></center></div>
     <div class="div2"> <img src="logo.png" width="110%"height="80%"></div>
     <div class="div3"> </div> <!-- div3 is for background only -->
     <div class="div4"> 
@@ -308,7 +370,7 @@ height:100vh;
         <div id="pic">
             <!-- The picture you want to trigger the animation -->
             <img src="family.png" alt="Your Picture">
-            </div>
+        </div>
         <div class="playground">
             <div id="red"></div>
 
@@ -324,7 +386,6 @@ height:100vh;
         </div>
     </div>
 </div>
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
   $(document).ready(function () {
     var container = $('.div8');
@@ -354,11 +415,17 @@ height:100vh;
       }
     });
   });
+  
+  $(document).on('click', '#btn', function (e) {
+  e.preventDefault();
+  window.location.href = 'karenlay.html';
+  console.log("Button Click");
+});
 
-  const startBtn = document.querySelector('.btn');
-  startBtn.addEventListener('click', function(){
-    window.open('karenlay.html');
-  })
+
+
+
+
 </script>
 </body>
 </html>
